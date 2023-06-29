@@ -69,6 +69,11 @@
         "controls_color": "#ffffff"
       }
     },
+    "product-shades-slider": {
+      "type": "product-shades-slider",
+      "settings": {
+      }
+    },
     "75552079-7fac-4530-b02b-cf6c6cbd15ae": {
       "type": "featured-collections",
       "blocks": {
@@ -100,6 +105,7 @@
   },
   "order": [
     "slideshow",
+    "product-shades-slider",
     "75552079-7fac-4530-b02b-cf6c6cbd15ae"
   ]
 }
