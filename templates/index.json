@@ -1,13 +1,13 @@
 {
   "sections": {
-    "slideshow": {
+    "26c8f09b-1a98-4d2b-9cd6-5fcf8d103c14": {
       "type": "slideshow",
       "blocks": {
-        "slide-1": {
+        "template--16128363659436__26c8f09b-1a98-4d2b-9cd6-5fcf8d103c14-1688042997e3ba3852-0": {
           "type": "image",
           "settings": {
-            "subheading": "",
-            "title": "",
+            "subheading": "Tell your story",
+            "title": "Slide 1",
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "content_max_width": 780,
@@ -25,14 +25,14 @@
             "background_opacity": 50,
             "text_color": "#ffffff",
             "border_color": "",
-            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)"
           }
         },
-        "slide-2": {
+        "template--16128363659436__26c8f09b-1a98-4d2b-9cd6-5fcf8d103c14-1688042997e3ba3852-1": {
           "type": "image",
           "settings": {
-            "subheading": "",
-            "title": "",
+            "subheading": "Tell your story",
+            "title": "Slide 2",
             "mobile_text_position": "place-self-center text-center",
             "desktop_text_position": "sm:place-self-center sm:text-center",
             "content_max_width": 780,
@@ -50,13 +50,13 @@
             "background_opacity": 50,
             "text_color": "#ffffff",
             "border_color": "",
-            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2), rgba(4, 4, 4, 0.65) 100%)"
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)"
           }
         }
       },
       "block_order": [
-        "slide-1",
-        "slide-2"
+        "template--16128363659436__26c8f09b-1a98-4d2b-9cd6-5fcf8d103c14-1688042997e3ba3852-0",
+        "template--16128363659436__26c8f09b-1a98-4d2b-9cd6-5fcf8d103c14-1688042997e3ba3852-1"
       ],
       "settings": {
         "allow_transparent_header": false,
@@ -67,27 +67,6 @@
         "cycle_speed": 5,
         "background": "#000000",
         "controls_color": "#ffffff"
-      }
-    },
-    "d6fda4f9-631b-4c37-98c3-93dee1abb1a3": {
-      "type": "product-shades-slider",
-      "blocks": {
-        "template--16128363659436__d6fda4f9-631b-4c37-98c3-93dee1abb1a3-1688042059dc267392-0": {
-          "type": "image",
-          "settings": {
-            "title": "Dark",
-            "shade_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "template--16128363659436__d6fda4f9-631b-4c37-98c3-93dee1abb1a3-1688042059dc267392-0"
-      ],
-      "settings": {
-        "title": "Featured Shades",
-        "layout_mode": "carousel",
-        "button_text": "View all products",
-        "button_url": ""
       }
     },
     "75552079-7fac-4530-b02b-cf6c6cbd15ae": {
@@ -120,8 +99,7 @@
     }
   },
   "order": [
-    "slideshow",
-    "d6fda4f9-631b-4c37-98c3-93dee1abb1a3",
+    "26c8f09b-1a98-4d2b-9cd6-5fcf8d103c14",
     "75552079-7fac-4530-b02b-cf6c6cbd15ae"
   ]
 }
