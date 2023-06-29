@@ -141,6 +141,103 @@
         "vertical_spacing_factor": 1,
         "subheading": ""
       }
+    },
+    "e6b15de4-8ac6-4e0d-adfd-205ba82f284d": {
+      "type": "slideshow",
+      "blocks": {
+        "template--16128363659436__e6b15de4-8ac6-4e0d-adfd-205ba82f284d-168804462546b48467-0": {
+          "type": "image",
+          "settings": {
+            "subheading": "Tell your story",
+            "title": "Slide 1",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)"
+          }
+        },
+        "template--16128363659436__e6b15de4-8ac6-4e0d-adfd-205ba82f284d-168804462546b48467-1": {
+          "type": "image",
+          "settings": {
+            "subheading": "Tell your story",
+            "title": "Slide 2",
+            "mobile_text_position": "place-self-center text-center",
+            "desktop_text_position": "sm:place-self-center sm:text-center",
+            "content_max_width": 780,
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_1_style": "solid",
+            "button_1_background": "#ffffff",
+            "button_1_text_color": "#000000",
+            "button_2_text": "",
+            "button_2_link": "",
+            "button_2_style": "outline",
+            "button_2_background": "#ffffff",
+            "button_2_text_color": "#000000",
+            "background": "",
+            "background_opacity": 50,
+            "text_color": "#ffffff",
+            "border_color": "",
+            "gradient_overlay": "linear-gradient(180deg, rgba(54, 54, 54, 0.2) 0%, rgba(4, 4, 4, 0.65) 100%)"
+          }
+        }
+      },
+      "block_order": [
+        "template--16128363659436__e6b15de4-8ac6-4e0d-adfd-205ba82f284d-168804462546b48467-0",
+        "template--16128363659436__e6b15de4-8ac6-4e0d-adfd-205ba82f284d-168804462546b48467-1"
+      ],
+      "settings": {
+        "allow_transparent_header": true,
+        "show_next_section_button": true,
+        "media_size": "auto",
+        "autoplay": true,
+        "autoplay_pause_on_video": true,
+        "cycle_speed": 5,
+        "background": "#000000",
+        "controls_color": "#ffffff"
+      }
+    },
+    "656f2d2c-2a66-42ca-9357-a0696f02910d": {
+      "type": "featured-collections",
+      "blocks": {
+        "template--16128363659436__656f2d2c-2a66-42ca-9357-a0696f02910d-16880446424dd50983-0": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "products_count": 8,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        }
+      },
+      "block_order": [
+        "template--16128363659436__656f2d2c-2a66-42ca-9357-a0696f02910d-16880446424dd50983-0"
+      ],
+      "settings": {
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": "Featured collection"
+      }
     }
   },
   "order": [
@@ -148,6 +245,8 @@
     "8981ad56-6624-43ab-b0f6-1d57176a58e0",
     "81a35186-5fe6-4c4e-b571-b863af9e9fb7",
     "982d1805-a326-4a83-bdef-5c17cab91744",
-    "75552079-7fac-4530-b02b-cf6c6cbd15ae"
+    "75552079-7fac-4530-b02b-cf6c6cbd15ae",
+    "e6b15de4-8ac6-4e0d-adfd-205ba82f284d",
+    "656f2d2c-2a66-42ca-9357-a0696f02910d"
   ]
 }
