@@ -1,500 +1,98 @@
 <!doctype html>
 
-<html class="no-js" lang="{{ shop.locale }}">
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
   <head>
-    
-{% include "starapps-core" %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0">
 
-    <meta charset="utf-8"> 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
-    <meta name="theme-color" content="{{ settings.accent_color }}">
-    {% assign noindexurlset = settings.noindex_urls | newline_to_br | strip_newlines | split: '<br />' %}
-    {% for noindexurl in noindexurlset %}
-		{% if noindexurl == request.path  %}	
-			<meta name="robots" content="noindex">
-    	{% endif %}
-	{% endfor %}
-
-    
-    {% if template == 'list-collections' %}
-    <title>Collections | Napoleon Perdis Cosmetics</title>
-    <meta name="description" content="Indulge in our prestigious collection of cosmetics, skincare & makeup artistry tools from Napoleon Perdis, available online with world-wide shipping. Shop now!">
-    {% else %}
-    <title>
-      {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}
-      {% comment %}{{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %} {%  endcomment  %}
-    </title>
+    <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif %}{% endif %}</title>
 
     {%- if page_description -%}
-    <meta name="description" content="{{ page_description | escape }}">
+      <meta name="description" content="{{ page_description | escape }}">
     {%- endif -%}
-    {% endif %}
 
     <link rel="canonical" href="{{ canonical_url }}">
 
     {%- if settings.favicon -%}
-    <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
     {%- endif -%}
 
-    {% include 'social-meta-tags' %}
+    {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
 
-    {%- unless template contains 'beautytalk' or template contains 'article' -%}
-    
-    <!-- starapps_scripts_start -->
-    <!-- This code is automatically managed by StarApps Studio -->
-    <!-- Please contact support@starapps.studio for any help -->
-    
-    
-    
-
-{% render "starapps-product-json", product: product, starapps_app: "VIA", starapps_attribute: "sa-product-json" %}<script type="text/javascript" src="https://bcdn.starapps.studio/apps/via/napoleonperdis/script-1609306583.js?shop={{shop.permanent_domain}}" async></script>
-<!-- starapps_scripts_end -->
+    {%- unless settings.heading_font.system? -%}
+      <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
     {%- endunless -%}
-   
-    {%- if template contains 'beautytalk' or template contains 'article' -%}
-    	{{ content_for_header | remove: '<link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">' | remove: 'https:\/\/app.octaneai.com\/1md4y7ila2egathk\/shopify.js' | remove: 'https:\/\/shopify.covet.pics\/covet-pics-widget-inject.js' | remove: 'https:\/\/static.klaviyo.com\/onsite\/js\/klaviyo.js'}}
-    {%- else -%}
-    	{%- render 'header-scripts.zipifypages', renderctx: 'thm' -%}{{ content_for_header }}
-    {%- endif -%}
-    
-    
-	
 
-    <link rel="stylesheet" href="{{ 'theme.scss.css' | asset_url }}">
-    
-    {%- if template contains 'beautytalk' or template contains 'article' -%}
-    	<link rel="stylesheet" href="{{ 'beautytalk.css' | asset_url }}">
-    {% endif %}
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    {%- unless settings.text_font.system? -%}
+      <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
 
-    <script>
-      // This allows to expose several variables to the global scope, to be used in scripts
-      window.theme = {
-        template: {{ template.name | json }},
-        localeRootUrl: {% if request.locale.primary %}''{% else %}{{ request.locale.root_url | json }}{% endif %},
-        shopCurrency: {{ shop.currency | json }},
-        moneyFormat: {{ shop.money_format | json }},
-        moneyWithCurrencyFormat: {{ shop.money_with_currency_format | json }},
-        useNativeMultiCurrency: {% if shop.enabled_currencies.size > 1 %}true{% else %}false{% endif %},
-        currencyConversionEnabled: {% if shop.enabled_currencies.size > 1 %}false{% else %}{{ settings.currency_conversion_enabled | json }}{% endif %},
-        currencyConversionMoneyFormat: {{ settings.currency_conversion_money_format | json }},
-        currencyConversionRoundAmounts: {{ settings.currency_conversion_round_amounts | json }},
-        productImageSize: {{ settings.product_image_size | json }},
-        searchMode: {{ settings.search_mode | json }},
-        showPageTransition: {{ settings.show_page_transition | json }},
-        showElementStaggering: {{ settings.show_element_staggering | json }},
-        showImageZooming: {{ settings.show_image_zooming | json }}
-      };
+    {%- render 'social-meta-tags' -%}
+    {%- render 'microdata-schema' -%}
+    {%- render 'css-variables' -%}
+    {%- render 'js-variables' -%}
 
-      window.languages = {
-        cartAddNote: {{ 'cart.general.add_note' | t | json }},
-        cartEditNote: {{ 'cart.general.edit_note' | t | json }},
-        productImageLoadingError: {{ 'product.slideshow.image_loading_error' | t | json }},
-        productFormAddToCart: {% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | json }}{% else %}{{ 'product.form.add_to_cart' | t | json }}{% endif %},
-        productFormUnavailable: {{ 'product.form.unavailable' | t | json }},
-        productFormSoldOut: {{ 'product.form.sold_out' | t | json }},
-        shippingEstimatorOneResult: {{ 'cart.shipping_estimator.one_result_title' | t | json }},
-        shippingEstimatorMoreResults: {{ 'cart.shipping_estimator.more_results_title' | t | json }},
-        shippingEstimatorNoResults: {{ 'cart.shipping_estimator.no_results_title' | t | json }}
-      };
-
-      window.lazySizesConfig = {
-        loadHidden: false,
-        hFac: 0.5,
-        expFactor: 2,
-        ricTimeout: 150,
-        lazyClass: 'Image--lazyLoad',
-        loadingClass: 'Image--lazyLoading',
-        loadedClass: 'Image--lazyLoaded'
-      };
-
-      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
-      document.documentElement.style.setProperty('--window-height', window.innerHeight + 'px');
-
-      // We do a quick detection of some features (we could use Modernizr but for so little...)
-      (function() {
-        document.documentElement.className += ((window.CSS && window.CSS.supports('(position: sticky) or (position: -webkit-sticky)')) ? ' supports-sticky' : ' no-supports-sticky');
-        document.documentElement.className += (window.matchMedia('(-moz-touch-enabled: 1), (hover: none)')).matches ? ' no-supports-hover' : ' supports-hover';
-      }());
-
-      // This code is done to force reload the page when the back button is hit (which allows to fix stale data on cart, for instance)
-      /*if (performance.navigation.type === 2) {
-        location.reload(true);
-      }*/
-      (function () {
-        window.onpageshow = function(event) {
-          if (event.persisted) {
-            window.location.reload();
-          }
-        };
-      })();
-    </script>
-
-    <script src="{{ 'lazysizes.min.js' | asset_url }}" async></script>
-
-    {% if settings.currency_conversion_enabled %}
-    <script src="//cdn.shopify.com/s/javascripts/currencies.js" defer></script>
-    {% endif %}
-
-    {%- if template == 'customers/addresses' -%}
-    <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer></script>
-    <script src="{{ 'customer_area.js' | shopify_asset_url }}" defer></script>
+    {%- if request.page_type == 'gift_card' -%}
+      <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
     {%- endif -%}
 
-    <script src="https://cdn.polyfill.io/v3/polyfill.min.js?unknown=polyfill&features=fetch,Element.prototype.closest,Element.prototype.remove,Element.prototype.classList,Array.prototype.includes,Array.prototype.fill,Object.assign,CustomEvent,IntersectionObserver,IntersectionObserverEntry,URL" defer></script>
-    <script src="{{ 'libs.min.js' | asset_url }}" defer></script>
-    <script src="{{ 'theme.min.js' | asset_url }}" defer></script>
-    
-    {%- if page.handle == 'tracking-details' -%}
-    	<script src="{{ 'order-tracking.js' | asset_url }}" defer></script>
-    {%- elsif page.handle == 'signature' -%}
-    	<script src="{{ 'signature.js' | asset_url }}" defer></script>
-    {%- elsif template == 'cart' -%}
-    	{% include "custom-cart" %}
-    {%- else -%}
-    	<script src="{{ 'custom.js' | asset_url }}" defer></script>
-    {%- endif -%}
-    <script src="{{ 'promo-ajax-add.js' | asset_url }}" defer></script>
-    <!-- Hotjar Tracking Code for www.napoleonperdis.com -->
-    <!--<script async>
-      (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1600084,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-	</script>-->
-    {% comment %}
-    {% include 'microdata-schema' %}
-    {% endcomment %}
+    <script async src="{{ 'es-module-shims.min.js' | asset_url }}"></script>
 
-
-
-    <!-- Start of napoleonperdis Zendesk Widget script -->
-    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=2ee02ecc-eafb-41e6-99bd-31a2a22805a0"> </script>
-    <!-- End of napoleonperdis Zendesk Widget script -->
-
-        <!-- dynamic redirection -->
-	{% unless content_for_header contains 'designMode' %}
-      {% assign urlset = settings.custom_redirect | newline_to_br | strip_newlines | split: '<br />' %}
-      {% for urls in urlset %}
-          {% assign url = urls | split: "," %}
-          {% if request.path == url[0]  %}	
-            <script>
-              window.location = "{{ shop.url }}{{ url[1] }}";
-    		</script>
-          {% endif %}
-      {% endfor %}
-    {% endunless %}
-    <!-- End of re-direct URL hack -->
-    {%- unless template contains 'beautytalk' or template contains 'article' -%}
-<!-- MMM Head Additions Start -->
-
-    {% assign current_variant = product.selected_or_first_available_variant %}
-
-    <script type="text/javascript">
-
-      function loadWidget() {
-        if (document.getElementById("mmmwidgets") === null || document.getElementById("mmmwidgets") === undefined) {
-          document.MMMWidget = document.MMMWidget || {};
-          var cid = "TmFwb2xlb24gUGVyZGlz";
-          var s = document.createElement("script");
-          s.defer = true;
-          s.setAttribute("id", "mmmwidgets");
-          s.setAttribute("referrerpolicy", "origin");
-          var hostname = "https://www.matchmymakeup.com";
-          s.src = hostname + "/client/" + cid + "/mmm_widget.js?" + 'cprodId={{ current_variant.sku }}' ;
-          document.head.appendChild(s);
-          document.MMMWidget.selectShade = function(product) {
-            var productName = product.productName;  
-			// Selectors Go Here Without ATC line - just product selection
-          }
+    <script type="importmap">
+      {%- comment -%}On Safari 16.3 and lower, a polyfill is used to load importmap{%- endcomment -%}
+      {
+        "imports": {
+          "vendor": "{{ 'vendor.min.js' | asset_url }}",
+          "theme": "{{ 'theme.js' | asset_url }}",
+          "photoswipe": "{{ 'photoswipe.min.js' | asset_url }}"
         }
       }
-
     </script>
 
-    <!-- MMM Head Additions End -->
-    {%- endunless -%}
-	
-	<!-- Organizational Markup Start-->
-    <script type="application/ld+json">
-	{
+    <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
 
-		  "@context": "http://schema.org",
+    {{ content_for_header }}
 
-		  "@type": "Organization",
+    {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
+  </head>
 
-		  "name": "Napoleon Perdis",
+  {% liquid
+    assign features_class = ''
 
-		"legalName": "Napoleon Perdis Cosmetics Pty Ltd",
+    if settings.show_button_transition
+      assign features_class = features_class | append: 'features--button-transition '
+    endif
 
-		  "logo": "https://cdn.shopify.com/s/files/1/0255/5904/0072/files/NP_NewLogo_Gold_215x.png?v=1591677317",
+    if settings.show_image_zoom_on_hover
+      assign features_class = features_class | append: 'features--zoom-image '
+    endif
 
-		  "url": "https://napoleonperdis.com/",
+    if settings.show_page_transition
+      assign features_class = features_class | append: 'features--page-transition '
+    endif
+  %}
 
-		  "telephone": "1300 625 387",
+  <body class="{{ features_class }}">
+    {%- render 'shadow-dom-templates' -%}
 
-		  "sameAs": ["https://www.linkedin.com/company/napoleon-perdis-cosmetics/","https://www.facebook.com/napoleonperdispage","https://www.youtube.com/user/napoleonperdis","https://instagram.com/napoleonperdis"],
+    <loading-bar class="loading-bar" aria-hidden="true"></loading-bar>
+    <a href="#main" allow-hash-change class="skip-to-content sr-only">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
-		  "address": {
-
-				"@type": "PostalAddress",
-
-				"streetAddress": "B3 85-113 Dunning Avenue",
-
-				"addressLocality": "Rosebery",
-
-			"addressRegion": "NSW",
-
-				"postalCode": "2018",
-
-				"addressCountry": "Australia"
-
-		  }
-
-	}
-
-	</script>
-	<!--- End Of Organisational Markup -->
-	{%- unless template contains 'beautytalk' or template contains 'article' -%}
-  <!--AZEXO_Header_Scripts--> {% include 'azexo-header-scripts' %} <!--End_AZEXO_Header_Scripts--><!--AZEXO_Version_78-->
-    {%- endunless -%}
-  {%- if template contains 'beautytalk' or template contains 'article' -%}
-<link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick-theme.css"/>
-{%- endif -%}
-    <script>
-      !function (w, d, t) {
-        w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};var o=document.createElement("script");o.type="text/javascript",o.async=!0,o.src=i+"?sdkid="+e+"&lib="+t;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};
-
-        ttq.load('C4OKI3FM5GFN4SM6AOSG');
-        ttq.page();
-      }(window, document, 'ttq');
-    </script>
-  
-  {% render 'shogun-head' %}
-
-<!-- GSSTART Show variants. Do not change -->
-{% if request.path contains "/products/" %}{% else %}<script  type="text/javascript"> 
-  gsVSCollectionId = {% if collection.id > 1 %} "{{ collection.id }}" {% else %} "0" {% endif %}; gsVSCollectionTags = '{{ current_tags | join: '&' | replace: "'", "\'" }}';  gsCollectionProdCnt = {% if collection.id > 1 %} {{ collection.products_count }} {% else %} 0 {% endif %}  ;			
-  gsCollection = {
-    {% if collection.products %}      {% paginate collection.products by 52 %}        {% for product in collection.products %} {% assign imagescount = product.images | size %}            {% if imagescount > 1 %}             '{{ product.handle }}' : [ 
-                {% for image in product.images  limit:2 %} "{{ image | img_url: '256x' }}", {% endfor %}
-                ],
-            {% endif %}        {% endfor %}      {% endpaginate %}    {% endif %}  };
-</script>  
-
-{% if request.path contains "/products/" %}{% else %}{% if request.path contains "/collections/" %}<script type="text/javascript" src="https://gravity-apps.com/variantmanager/js/shopify/image_swap7802.js?v=d78f0d7764f09e90835a2192c8af634d"></script>{% endif %}{% endif %}{% endif %}
-<!-- Show variants code end. Do not change GSEND --></head>
- 
-  <body class="prestige--v4 {% if template.directory %}template-{{ template.directory | handle }}{% endif %} template-{{ template.name | handle }} {% if request.path contains 'saved-cart' and request.path contains 'share'%} saved-cart-share{% endif %}">
-
-
-    <a class="PageSkipLink u-visually-hidden" href="#main">{{ 'header.navigation.skip_to_content' | t }}</a>
-    <span class="LoadingBar"></span>
-    <div class="PageOverlay"></div>
-    <div class="PageTransition"></div>
-
-    {% section 'popup' %}
-    {% section 'sidebar-menu' %}
-
-    {%- if template != 'cart' -%}
-    {% include 'cart-drawer' %}
+    {%- if request.page_type != 'password' -%}
+      {%- sections 'header-group' -%}
+      {%- sections 'overlay-group' -%}
     {%- endif -%}
 
-    <div class="PageContainer">
-      <div class="shopify-section--header">
-        {% section 'announcement-slider' %}
-        {% section 'header' %}
-        {% if template contains 'product' and product.metafields.header.banner != blank and product.metafields.header.banner != "oos" %}
-        	{% section 'pdp-announcement-slider' %}
-        {% endif %}
-      </div>
-      {% if template contains 'blog.beautytalk' or template contains 'article.beautytalk' or template contains 'article'%}
-      <div id="contenthub-header-image-container">
-        <a href="/blogs/beauty-talk" alt="beauty-talk">
-          <img src="{{ settings.bt_desktop_banner | img_url: '2010x' }}" class="image-container hidden-phone">
-          <img src="{{ settings.bt_mobile_banner | img_url: '1034x' }}" class="image-container hidden-tablet-and-up">
-        </a>
-      </div>
+    <main id="main" class="anchor">
+      {{ content_for_layout }}
+    </main>
 
-      {% include 'beauty-talk-menu' %}
-      {% endif %}
-      {% unless template contains 'collection' %}
-     	 {% render 'breadcrumbs' %}
-      {% endunless %}
-      <main id="main" role="main">
-        {{ content_for_layout }}
-        <noscript class="endOfLayoutContentX" type="text/mark"></noscript>
-      </main>
-
-      {% section 'footer' %}
-    </div>
-    {% include 'social-login' %}
-    {% include 'subscribe-it-helper' %}
-    <div class="template-cart ajax-popup">
-      <div id="add-to-cart" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <span class="add-to-cart-close close">&times;</span>
-          <strong class="title">Added To Bag</strong>
-          <div id="p-float" class="free-gifts">
-            <div class="p-float">
-              <div class="p-float-in">
-                <img class="p-img" src=""/>
-                <div class="Alert--error"></div>
-              </div>
-            </div>
-            <div class="p-float p-float-buttons">
-              <div class="product_data">
-                <div class="p-name"></div>
-                <div class="product_qty_price">
-                  QTY. <span id="added-qty"> X </span> @ <span id="added-price">$PRICE</span> AUD
-                </div>
-              </div>
-              <div class="p-float-in">
-                <a class="continue_shopping continue ProductForm__AddToCart Button Button--primary Button--full" href="javascript:void(0)" onclick="jQuery('.add-to-cart-close').trigger('click');">Continue Shopping</a>
-                <a href="/cart" class="view_cart ProductForm__AddToCart Button Button--primary Button--full">View Bag</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    {%- unless template contains 'beautytalk' or template contains 'article' -%}
-	<script async type="text/javascript" src="//static.klaviyo.com/onsite/js/klaviyo.js?company_id=YbKt4V"></script>
-    {%- endunless -%}
-	<script>
-	 var _learnq = _learnq || [];
-	 if ('{{ customer.email }}') {
-	   _learnq.push(['identify', {
-		   '$email' : '{{ customer.email }}'
-		 }]);
-	  }
-	</script>
-    {%- unless template contains 'beautytalk' or template contains 'article' -%}
-  <!--AZEXO_Footer_Scripts--> {% include 'azexo-footer-scripts' %} <!--End_AZEXO_Footer_Scripts-->
-    <!-- Klaviyo script to trigger add to cart event -->    
-    
-    <script type="text/javascript">
-      var _learnq = _learnq || [];
-      function addedToCart() {
-        fetch(`${window.location.origin}/cart.js`)
-        .then(res => res.clone().json().then(data => {
-          var cart = {
-            total_price: data.total_price/100,
-            $value: data.total_price/100,
-            total_discount: data.total_discount,
-            original_total_price: data.original_total_price/100,
-            items: data.items
-          }
-          if (typeof item !== 'undefined') {
-            cart = Object.assign(cart, item)
-          }
-          _learnq.push(['track', 'Added to Cart', cart])
-        }))
-      } 
-      (function (ns, fetch) {
-        ns.fetch = function() {
-          const response = fetch.apply(this, arguments);
-          response.then(res => {
-            if (`${window.location.origin}/cart/add.js`
-                .includes(res.url)) {
-              addedToCart()
-            }
-          });
-          return response
-        }
-      }(window, window.fetch))
-      $(document).ajaxComplete(function(event, request, settings){
-        if(settings.url == "/cart/add.js"){
-          addedToCart()
-        }
-      })</script>
-    
-  {%- render 'page-footer.zipifypages', renderctx: 'thm', ocuapp: oneclickupsellapp -%}
-      {% include 'dataLayer-allPages' %}
-      
-
-
-
-
-<!-- Back in Stock helper snippet -->
-{% render 'back-in-stock-helper' %}
-<!-- End Back in Stock helper snippet -->
-
-<!-- GSSTART Show variants BODY. Do not change -->{% if collection.products %}
-<div class="gsdatacontb" style="display: none !important;">
-  {% paginate collection.products by 52 %}{% for product in collection.products %}{% assign imagescount = product.images | size %}{% if imagescount > 1 %}
-  <div style="display: none !important;" class="gsProductVariants" optionnames="{{ product.options | join: ' | ' }}"  gsProductHandler="{{ product.handle }}" >{% assign variantImgsUsedStr = "" %} {% assign variantBySizeUsedStr = "" %}{% assign sizeoptionnr = 0 %}
-{% for option in product.options %}{% capture optioncaseins %}{{option | downcase}}{% endcapture %}{% if optioncaseins contains "size" or optioncaseins contains "rösse" or optioncaseins contains "uurus" or optioncaseins contains "المقاس" or optioncaseins contains "oko" or optioncaseins contains "eden" or optioncaseins contains "größe" or optioncaseins contains "éret" or optioncaseins contains "ozmiar" or optioncaseins contains "uantity" or optioncaseins contains "in option" or optioncaseins contains "torlek" or optioncaseins contains "aille" or optioncaseins contains "aglia" or optioncaseins contains "alla" or optioncaseins contains "amaño" or optioncaseins contains "גודל" or optioncaseins contains "サイズ" or optioncaseins contains "taille" or optioncaseins contains "eggiseno" or optioncaseins contains "aat" or optioncaseins contains "tamanho" or optioncaseins contains "rrelse" or optioncaseins contains "siza" %}{% assign sizeoptionnr = forloop.index %}{% if product.options.size == 1 %}{% endif %}{% if optioncaseins contains "color" or optioncaseins contains "colour" or optioncaseins contains "farge"  %}{% assign sizeoptionnr = 0 %}{% endif %}{% endif %}{% endfor %}
-    {% for variant in product.variants %}{% assign featuredImageSize = variant.featured_image | size %}{% if featuredImageSize > 0  and variant.available  %}{% if variantImgsUsedStr contains "IGNOREGS" %}{% else %}{% assign variantImgsUsedStr = variantImgsUsedStr | append: variant.featured_image %}{% assign canAddVariant = true %}{% if sizeoptionnr == 1 %}{% assign optionCheckVal = ";" | append: variant.option2 | append: variant.option3 | append: ";" %}{% if variantBySizeUsedStr contains optionCheckVal %}{% assign canAddVariant = false %}{% else %}{% assign variantBySizeUsedStr = variantBySizeUsedStr | append: ";" | append: variant.option2 | append: variant.option3 | append: ";" %}{% endif %}{% endif %}
-    {% if sizeoptionnr == 2 %}{% assign optionCheckVal = ";" | append: variant.option1 | append: variant.option3 | append: ";" %}{% if variantBySizeUsedStr contains optionCheckVal %}
-                {% assign canAddVariant = false %}{% else %}{% assign variantBySizeUsedStr = variantBySizeUsedStr | append: ";" | append: variant.option1 | append: variant.option3 | append: ";" %}{% endif %}{% endif %} {% if sizeoptionnr == 3 %}{% assign optionCheckVal = ";" | append: variant.option1 | append: variant.option2 | append: ";" %}{% if variantBySizeUsedStr contains optionCheckVal %}
-                {% assign canAddVariant = false %}{% else %}{% assign variantBySizeUsedStr = variantBySizeUsedStr | append: ";" | append: variant.option1 | append: variant.option2 | append: ";" %}{% endif %}{% endif %} {% if canAddVariant == true %}
-    <p vcontinue="{{ variant.inventory_policy }}" vquantity="{{ variant.inventory_quantity }}" vavailable="{{ variant.available }}" variantpriceid="{{ variant.id }}" originalcompprice='{{ product.compare_at_price_min | money_without_trailing_zeros | escape }}' originalprice='{{ product.price | money_without_trailing_zeros | escape }}' minprice='{{ product.price_min | money_without_trailing_zeros | escape }}' comparePrice='{{ variant.compare_at_price | money_without_trailing_zeros | escape }}' variantPrice='{{ variant.price | money_without_trailing_zeros | escape }}'></p>
-    <p varianttitleid="{{ variant.id }}"  sizeoptionnr="{{ sizeoptionnr }}" vsavailable="{{ variant.available }}" optionuidtwo="{{ product.id }}{{ variant.option2 | escape }}" optiontwo="{{ variant.option2 | escape }}" originaltitle="{{ product.title | escape }}" variantTitle="{{ variant.title | escape }}" optionuid="{{ product.id }}{{ variant.option1 | escape }}"></p>
-       <span variantid="{{ variant.id }}" imgwidth="{{ variant.featured_image.width }}" imgheight="{{ variant.featured_image.height }}" gsvariantimage="{{ variant.featured_image | img_url: '256x' }}"></span>
-    {% endif %}{% endif %}{% endif %}{% endfor %}
-  </div>{% endif %}{% endfor %}{% endpaginate %}{% endif %}
-  {% if collection.products %}
-        <div style="display: none !important;" class="gsProductImages" >
-        {% paginate collection.products by 52 %}{% for product in collection.products %} {% assign imagescount = product.images | size %}{% if imagescount > 1 %}{% for image in product.images  limit:1 %}
-                                        <span gsProductHandle="{{ product.handle }}" firstImage="{{ image | img_url: '256x' }}"></span>
-                                {% endfor %}{% endif %}{% endfor %}{% endpaginate %}
-  </div>
-  </div>
-    {% endif %} <!-- Show variants code end BODY. Do not change GSEND --></body>
-  {%- endunless -%}
+    {%- if request.page_type != 'password' -%}
+      {%- sections 'footer-group' -%}
+    {%- endif -%}
+  </body>
 </html>
-<!-- Begin Shopify-Afterpay JavaScript Snippet (v1.0.3) -->
-<script type="text/javascript">
-  // Editable fields:
-  var afterpay_min = 0.04;            // As per your Afterpay contract.
-  var afterpay_max = 1000.00;         // As per your Afterpay contract.
-  var afterpay_cbt_enabled = false;   // As per your Afterpay contract; change to true to display Cross-Border Trade artwork (for AU/NZ).
-  var afterpay_logo_theme = 'colour'; // Can be 'colour', 'black' or 'white'.
-
-  // Overrides:
-  // var afterpay_product_selector = '#product-price-selector';
-  // var afterpay_cart_integration_enabled = true;
-  // var afterpay_cart_static_selector = '#cart-subtotal-selector';
-
-  // Non-editable fields:
-  var afterpay_shop_currency = {{ shop.currency | json }};
-  var afterpay_cart_currency = {{ cart.currency.iso_code | json }};
-  var afterpay_shop_money_format = {{ shop.money_format | json }};
-  var afterpay_shop_permanent_domain = {{ shop.permanent_domain | json }};
-  var afterpay_theme_name = {{ theme.name | json }};
-  var afterpay_product = {{ product | json }};
-  var afterpay_current_variant = {{ product.selected_or_first_available_variant | json }};
-  var afterpay_cart_total_price = {{ cart.total_price | json }};
-  var afterpay_js_snippet_version = '1.0.3';
-</script>
-<!-- Speaker Control JS -->
-<script>
-    jQuery('.speaker').click(function(e) {
-    if( jQuery("#"+jQuery(this).attr('sectionid')).prop('muted') ) {
-       jQuery("#"+jQuery(this).attr('sectionid')).prop('muted', false);
-       jQuery(this).addClass('on');
-    } else {
-      jQuery("#"+jQuery(this).attr('sectionid')).prop('muted', true);
-      jQuery(this).removeClass('on');
-    }
-});
-</script>
-{%- unless template contains 'beautytalk' or template contains 'article' -%}
-<script type="text/javascript" src="https://static.afterpay.com/shopify-afterpay-javascript.js"></script>
-<!-- End Shopify-Afterpay JavaScript Snippet (v1.0.3) -->
-{%- endunless -%}
-{%- if template contains 'beautytalk' or template contains 'article' -%}
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<script type="text/javascript" src="https://kenwheeler.github.io/slick/slick/slick.js"></script>
-<link rel="stylesheet" type="text/css" href="https://kenwheeler.github.io/slick/slick/slick.css"/>
-{%- endif -%}
