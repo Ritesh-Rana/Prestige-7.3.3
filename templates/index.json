@@ -78,10 +78,18 @@
             "title": "Dark",
             "shade_url": ""
           }
+        },
+        "c6746178-78d3-4b68-ad81-22f29f7b451a": {
+          "type": "image",
+          "settings": {
+            "title": "Autum",
+            "shade_url": ""
+          }
         }
       },
       "block_order": [
-        "template--16128363659436__8981ad56-6624-43ab-b0f6-1d57176a58e0-16880432253aacb28e-0"
+        "template--16128363659436__8981ad56-6624-43ab-b0f6-1d57176a58e0-16880432253aacb28e-0",
+        "c6746178-78d3-4b68-ad81-22f29f7b451a"
       ],
       "settings": {
         "title": "Featured Shades",
