@@ -1,0 +1,111 @@
+{%- capture section_settings -%}
+{
+  "videoType": {{ section.settings.video_url.type | json }},
+  "videoId": {{ section.settings.video_url.id | json }},
+  "requestHost": {{ request.host | json }}
+}
+{%- endcapture -%}
+
+<section class="Section hidden-phone" id="section-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="center-con">
+    <div class="round">
+      <div class="speaker on" sectionid="desktop-video-{{ section.id }}">
+        <div id="mute" class="mute"></div>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <div class="ImageHero {% if section.settings.section_size != 'normal' %}ImageHero--{{ section.settings.section_size }}{% endif %}">
+    {% if section.settings.video_url != blank %}
+      <a href="{{ section.settings.video_link }}" style="display:block;width:100%;">
+        <video
+          style="width:100%;"
+          autoplay
+          loop
+          muted
+          playsinline
+          id="desktop-video-{{ section.id }}"
+          src="{{ section.settings.video_url }}"
+        >
+          <source type="video/mp4" style="width:100%;">
+          Your browser does not support HTML5 video.
+        </video>
+      </a>
+    {% else %}
+      <video
+        style="width:100%;"
+        autoplay
+        loop
+        muted
+        playsinline
+        id="desktop-video-{{ section.id }}"
+        src="{{ section.settings.video_url }}"
+      >
+        <source type="video/mp4" style="width:100%;">
+        Your browser does not support HTML5 video.
+      </video>
+    {% endif %}
+  </div>
+</section>
+<style>
+  #section-{{ section.id }} { position:relative;}
+    a.ImageHero__VideoHolder { width:100%;z-index: 99999;min-height:480px;display:block; }
+    @media screen and (min-width: 641px) {
+      a.ImageHero__VideoHolder {
+          min-height: 438px;
+      }
+    }
+    @media screen and (min-width: 1240px) {
+      a.ImageHero__VideoHolder {
+          min-height: 600px;
+      }
+    }
+</style>
+{% schema %}
+{
+  "name": "Background video",
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Background videos are automatically muted to allow autoplay on mobile. If you require audio, use the \"Featured Video\" section."
+    },
+    {
+      "type": "select",
+      "id": "section_size",
+      "label": "Section size",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL"
+    },
+    {
+      "type": "url",
+      "id": "video_link",
+      "label": "Add Link To The Video"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Video",
+      "name": "Background video",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
