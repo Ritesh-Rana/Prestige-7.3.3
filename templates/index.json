@@ -109,8 +109,8 @@
     "982d1805-a326-4a83-bdef-5c17cab91744": {
       "type": "background-video-mobile",
       "settings": {
-        "section_size": "large",
-        "video_url": "",
+        "section_size": "small",
+        "video_url": "https:\/\/prismic-io.s3.amazonaws.com\/napoleonperdis\/4a6d2b14-847b-4358-a83f-2964920ba362_ShadowPlay+-+Look+3+-+GRID+MASTER-low+res.mp4",
         "video_link": ""
       }
     },
