@@ -78,10 +78,18 @@
             "title": "AFTER DARK",
             "shade_url": "https:\/\/napoleonperdis.com\/products\/colour-ritual-eyeshadow-quad-1?variant=40962617245836"
           }
+        },
+        "33c5f770-e59e-4311-a5a8-51632d9abeaa": {
+          "type": "image",
+          "settings": {
+            "title": "AUTUMN HORIZON",
+            "shade_url": ""
+          }
         }
       },
       "block_order": [
-        "7fa3d77c-29cf-4a2c-af99-9737d52b452a"
+        "7fa3d77c-29cf-4a2c-af99-9737d52b452a",
+        "33c5f770-e59e-4311-a5a8-51632d9abeaa"
       ],
       "settings": {
         "title": "COLOUR RITUAL EYESHADOW QUAD",
