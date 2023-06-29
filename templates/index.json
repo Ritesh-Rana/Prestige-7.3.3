@@ -71,7 +71,24 @@
     },
     "product-shades-slider": {
       "type": "product-shades-slider",
+      "blocks": {
+        "110c1019-570a-47ca-9e1c-914cc6acf794": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/beauty-set.jpg",
+            "title": "AFTER DARK",
+            "shade_url": "https:\/\/napoleonperdis.com\/products\/colour-ritual-eyeshadow-quad-1?variant=40962617245836"
+          }
+        }
+      },
+      "block_order": [
+        "110c1019-570a-47ca-9e1c-914cc6acf794"
+      ],
       "settings": {
+        "title": "COLOUR RITUAL EYESHADOW QUAD",
+        "layout_mode": "carousel",
+        "button_text": "FIND YOUR SHADE",
+        "button_url": "https:\/\/napoleonperdis.com\/products\/colour-ritual-eyeshadow-quad-1"
       }
     },
     "75552079-7fac-4530-b02b-cf6c6cbd15ae": {
