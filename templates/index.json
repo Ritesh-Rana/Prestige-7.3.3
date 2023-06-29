@@ -98,6 +98,14 @@
         "button_url": ""
       }
     },
+    "982d1805-a326-4a83-bdef-5c17cab91744": {
+      "type": "background-video-mobile",
+      "settings": {
+        "section_size": "large",
+        "video_url": "",
+        "video_link": ""
+      }
+    },
     "75552079-7fac-4530-b02b-cf6c6cbd15ae": {
       "type": "featured-collections",
       "blocks": {
@@ -130,6 +138,7 @@
   "order": [
     "slideshow",
     "8981ad56-6624-43ab-b0f6-1d57176a58e0",
+    "982d1805-a326-4a83-bdef-5c17cab91744",
     "75552079-7fac-4530-b02b-cf6c6cbd15ae"
   ]
 }
