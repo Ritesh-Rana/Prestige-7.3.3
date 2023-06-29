@@ -98,6 +98,14 @@
         "button_url": ""
       }
     },
+    "81a35186-5fe6-4c4e-b571-b863af9e9fb7": {
+      "type": "background-video",
+      "settings": {
+        "section_size": "normal",
+        "video_url": "https:\/\/prismic-io.s3.amazonaws.com\/napoleonperdis\/72d021b7-2189-4a04-bbde-edaf1f515f00_ShadowPlay+-+Look+3+-+YouTube+MASTER-low+res.mp4",
+        "video_link": ""
+      }
+    },
     "982d1805-a326-4a83-bdef-5c17cab91744": {
       "type": "background-video-mobile",
       "settings": {
@@ -138,6 +146,7 @@
   "order": [
     "slideshow",
     "8981ad56-6624-43ab-b0f6-1d57176a58e0",
+    "81a35186-5fe6-4c4e-b571-b863af9e9fb7",
     "982d1805-a326-4a83-bdef-5c17cab91744",
     "75552079-7fac-4530-b02b-cf6c6cbd15ae"
   ]
