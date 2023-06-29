@@ -69,33 +69,25 @@
         "controls_color": "#ffffff"
       }
     },
-    "product-shades-slider": {
+    "d6fda4f9-631b-4c37-98c3-93dee1abb1a3": {
       "type": "product-shades-slider",
       "blocks": {
-        "7fa3d77c-29cf-4a2c-af99-9737d52b452a": {
+        "template--16128363659436__d6fda4f9-631b-4c37-98c3-93dee1abb1a3-1688042059dc267392-0": {
           "type": "image",
           "settings": {
-            "title": "AFTER DARK",
-            "shade_url": "https:\/\/napoleonperdis.com\/products\/colour-ritual-eyeshadow-quad-1?variant=40962617245836"
-          }
-        },
-        "33c5f770-e59e-4311-a5a8-51632d9abeaa": {
-          "type": "image",
-          "settings": {
-            "title": "AUTUMN HORIZON",
+            "title": "Dark",
             "shade_url": ""
           }
         }
       },
       "block_order": [
-        "7fa3d77c-29cf-4a2c-af99-9737d52b452a",
-        "33c5f770-e59e-4311-a5a8-51632d9abeaa"
+        "template--16128363659436__d6fda4f9-631b-4c37-98c3-93dee1abb1a3-1688042059dc267392-0"
       ],
       "settings": {
-        "title": "COLOUR RITUAL EYESHADOW QUAD",
+        "title": "Featured Shades",
         "layout_mode": "carousel",
-        "button_text": "FIND YOUR SHADE",
-        "button_url": "https:\/\/napoleonperdis.com\/products\/colour-ritual-eyeshadow-quad-1"
+        "button_text": "View all products",
+        "button_url": ""
       }
     },
     "75552079-7fac-4530-b02b-cf6c6cbd15ae": {
@@ -129,7 +121,7 @@
   },
   "order": [
     "slideshow",
-    "product-shades-slider",
+    "d6fda4f9-631b-4c37-98c3-93dee1abb1a3",
     "75552079-7fac-4530-b02b-cf6c6cbd15ae"
   ]
 }
