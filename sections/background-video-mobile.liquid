@@ -6,7 +6,12 @@
 }
 {%- endcapture -%}
 
-<section class="Section hidden-tablet-and-up" id="section-{{ section.id }}" data-section-id="{{ section.id }}">
+<section
+  class="Section hidden-tablet-and-up"
+  id="section-{{ section.id }}"
+  data-section-id="{{ section.id }}"
+  section-settings="{{ section_settings }}"
+>
   <div class="center-con">
     <div class="round">
       <div class="speaker on" sectionid="mobile-video-{{ section.id }}">
