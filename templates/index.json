@@ -69,6 +69,27 @@
         "controls_color": "#ffffff"
       }
     },
+    "a57012ae-2a21-44fa-9f3e-63953689ff54": {
+      "type": "product-shades-slider",
+      "blocks": {
+        "1f867af8-261b-4cc8-a6af-359216894663": {
+          "type": "image",
+          "settings": {
+            "title": "Dark",
+            "shade_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "1f867af8-261b-4cc8-a6af-359216894663"
+      ],
+      "settings": {
+        "title": "Featured Shades",
+        "layout_mode": "carousel",
+        "button_text": "View all products",
+        "button_url": ""
+      }
+    },
     "81a35186-5fe6-4c4e-b571-b863af9e9fb7": {
       "type": "background-video",
       "settings": {
@@ -220,45 +241,16 @@
         "button_text": "",
         "button_url": ""
       }
-    },
-    "a57012ae-2a21-44fa-9f3e-63953689ff54": {
-      "type": "product-shades-slider",
-      "blocks": {
-        "1f867af8-261b-4cc8-a6af-359216894663": {
-          "type": "image",
-          "settings": {
-            "title": "Dark",
-            "shade_url": ""
-          }
-        },
-        "49592c9b-32c6-49d4-83bb-1b35e707ef71": {
-          "type": "image",
-          "settings": {
-            "title": "",
-            "shade_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "1f867af8-261b-4cc8-a6af-359216894663",
-        "49592c9b-32c6-49d4-83bb-1b35e707ef71"
-      ],
-      "settings": {
-        "title": "Featured Shades",
-        "layout_mode": "carousel",
-        "button_text": "View all products",
-        "button_url": ""
-      }
     }
   },
   "order": [
     "slideshow",
+    "a57012ae-2a21-44fa-9f3e-63953689ff54",
     "81a35186-5fe6-4c4e-b571-b863af9e9fb7",
     "982d1805-a326-4a83-bdef-5c17cab91744",
     "75552079-7fac-4530-b02b-cf6c6cbd15ae",
     "e6b15de4-8ac6-4e0d-adfd-205ba82f284d",
     "656f2d2c-2a66-42ca-9357-a0696f02910d",
-    "dc7e7478-f3c7-4c1d-871d-faf47fca186c",
-    "a57012ae-2a21-44fa-9f3e-63953689ff54"
+    "dc7e7478-f3c7-4c1d-871d-faf47fca186c"
   ]
 }
