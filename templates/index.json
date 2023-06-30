@@ -230,9 +230,9 @@
         "template--16128363659436__656f2d2c-2a66-42ca-9357-a0696f02910d-16880446424dd50983-0": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "bestsellers",
             "products_count": 8,
-            "title": "",
+            "title": "BESTSELLERS",
             "link_url": "",
             "link_text": "View all"
           }
