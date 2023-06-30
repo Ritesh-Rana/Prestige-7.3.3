@@ -173,7 +173,7 @@
       ],
       "settings": {
         "allow_transparent_header": true,
-        "show_next_section_button": true,
+        "show_next_section_button": false,
         "media_size": "auto",
         "autoplay": true,
         "autoplay_pause_on_video": true,
@@ -220,6 +220,35 @@
         "button_text": "",
         "button_url": ""
       }
+    },
+    "a57012ae-2a21-44fa-9f3e-63953689ff54": {
+      "type": "product-shades-slider",
+      "blocks": {
+        "1f867af8-261b-4cc8-a6af-359216894663": {
+          "type": "image",
+          "settings": {
+            "title": "Dark",
+            "shade_url": ""
+          }
+        },
+        "49592c9b-32c6-49d4-83bb-1b35e707ef71": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "1f867af8-261b-4cc8-a6af-359216894663",
+        "49592c9b-32c6-49d4-83bb-1b35e707ef71"
+      ],
+      "settings": {
+        "title": "Featured Shades",
+        "layout_mode": "carousel",
+        "button_text": "View all products",
+        "button_url": ""
+      }
     }
   },
   "order": [
@@ -229,6 +258,7 @@
     "75552079-7fac-4530-b02b-cf6c6cbd15ae",
     "e6b15de4-8ac6-4e0d-adfd-205ba82f284d",
     "656f2d2c-2a66-42ca-9357-a0696f02910d",
-    "dc7e7478-f3c7-4c1d-871d-faf47fca186c"
+    "dc7e7478-f3c7-4c1d-871d-faf47fca186c",
+    "a57012ae-2a21-44fa-9f3e-63953689ff54"
   ]
 }
