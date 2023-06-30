@@ -58,7 +58,8 @@
     {{ content_for_header }}
 
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
-    {{- 'custom.scss.liquid' | asset_url | stylesheet_tag: preload: true -}}
+        {{ 'custom.scss.css' | asset_url | stylesheet_tag }}
+
     
   </head>
 
