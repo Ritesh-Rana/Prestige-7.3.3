@@ -140,6 +140,9 @@
       "block_order": [
         "template--15958646620300__75552079-7fac-4530-b02b-cf6c6cbd15ae-1684411248bb56ed57-0"
       ],
+      "custom_css": [
+        "form {display: none;}"
+      ],
       "settings": {
         "separate_section_with_border": true,
         "hide_product_information": false,
