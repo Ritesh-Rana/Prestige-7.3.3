@@ -72,24 +72,26 @@
     "8981ad56-6624-43ab-b0f6-1d57176a58e0": {
       "type": "product-shades-slider",
       "blocks": {
-        "template--16128363659436__8981ad56-6624-43ab-b0f6-1d57176a58e0-16880432253aacb28e-0": {
-          "type": "image",
-          "settings": {
-            "title": "Dark",
-            "shade_url": ""
-          }
-        },
         "c6746178-78d3-4b68-ad81-22f29f7b451a": {
           "type": "image",
           "settings": {
+            "image": "shopify:\/\/shop_images\/beauty-set.jpg",
             "title": "Autum",
+            "shade_url": ""
+          }
+        },
+        "13364159-d7d9-43a0-8124-3eb945d7591b": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Napoleon_LINERSHERO3.1_EXTRA4SHADES_1x1copy_08d31673-afa7-40a9-8933-34a5bf739bb3.jpg",
+            "title": "Dark",
             "shade_url": ""
           }
         }
       },
       "block_order": [
-        "template--16128363659436__8981ad56-6624-43ab-b0f6-1d57176a58e0-16880432253aacb28e-0",
-        "c6746178-78d3-4b68-ad81-22f29f7b451a"
+        "c6746178-78d3-4b68-ad81-22f29f7b451a",
+        "13364159-d7d9-43a0-8124-3eb945d7591b"
       ],
       "settings": {
         "title": "COLOUR RITUAL EYESHADOW QUAD",
