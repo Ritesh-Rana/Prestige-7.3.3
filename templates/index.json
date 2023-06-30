@@ -78,10 +78,42 @@
             "title": "Dark",
             "shade_url": ""
           }
+        },
+        "7fd09e11-4b6f-4d0e-be12-5d4133dc3956": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
+        },
+        "e6f19038-bc56-4a02-a9c6-f951c91a1cb4": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
+        },
+        "92648e1e-aafa-452d-b171-6e51818e2d59": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
+        },
+        "e7798c1b-4ef9-4f6f-a365-7bad29269fdc": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
         }
       },
       "block_order": [
-        "1f867af8-261b-4cc8-a6af-359216894663"
+        "1f867af8-261b-4cc8-a6af-359216894663",
+        "7fd09e11-4b6f-4d0e-be12-5d4133dc3956",
+        "e6f19038-bc56-4a02-a9c6-f951c91a1cb4",
+        "92648e1e-aafa-452d-b171-6e51818e2d59",
+        "e7798c1b-4ef9-4f6f-a365-7bad29269fdc"
       ],
       "settings": {
         "title": "Featured Shades",
