@@ -89,30 +89,6 @@
   "name": "Shades Slider",
   "class": "shopify-section--bordered",
   "max_blocks": 20,
-  "blocks": [
-    {
-      "type": "image",
-      "name": "shades",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Shade Name",
-          "info": "If none is set, collection title is used."
-        },
-        {
-          "type": "url",
-          "id": "shade_url",
-          "label": "Shade URL"
-        }
-      ]
-    }
-  ],
   "settings": [
     {
       "type": "text",
@@ -144,11 +120,40 @@
       "label": "Button URL"
     }
   ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "shades",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Shade Name",
+          "info": "If none is set, collection title is used."
+        },
+        {
+          "type": "url",
+          "id": "shade_url",
+          "label": "shade URL"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "category": "Image",
       "name": "Featured Shades",
-      "settings": {}
+      "settings": {},
+      "blocks": [
+        {
+          "type": "image"
+        }
+      ]
     }
   ]
 }
