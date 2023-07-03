@@ -1,98 +1,98 @@
-{%- if section.settings.layout_mode == 'carousel' -%}
-  {%- capture flickity_options -%}
-  {
-    "prevNextButtons": true,
-    "pageDots": false,
-    "wrapAround": false,
-    "contain": true,
-    "cellAlign": "center",
-    "watchCSS": true,
-    "dragThreshold": 8,
-    "groupCells": true,
-    "arrowShape": {"x0": 20, "x1": 60, "y1": 40, "x2": 60, "y2": 35, "x3": 25}
-  }
-  {%- endcapture -%}
-{%- endif -%}
-
-{%- capture section_settings -%}
-{
-  "layout": {{ section.settings.layout_mode | json }}
-}
-{%- endcapture -%}
-
-<section class="Section Section--spacingNormal" data-section-id="{{ section.id }}" data-section-type="featured-collections" data-settings='{{ section_settings }}'>
-  <header class="SectionHeader SectionHeader--center">
-    <div class="Container">
-    {%- if section.settings.title != blank -%}
-      <h3 class="Heading u-h1">{{ section.settings.title | escape }}</h3>
-    {%- endif -%}
-    </div>
-  </header>
-
-  {%- for block in section.blocks -%}
-    {%- assign image = block.settings.image -%}
-
-    <div class="TabPanel" id="block-1" aria-hidden="{% if forloop.first %}false{% else %}true{% endif %}" role="tabpanel" {{ block.shopify_attributes }}>
-      <div class="ProductListWrapper">
-          {%- if section.settings.layout_mode == 'grid' -%}
-            <div class="ProductList ProductList--grid ProductList--removeMargin Grid" data-mobile-count="{{ section.settings.grid_mobile_items_per_row }}" data-desktop-count="{{ section.settings.grid_desktop_items_per_row }}">
-              {%- for block in section.blocks -%}
-                <div class="Grid__Cell 1/{{ section.settings.grid_mobile_items_per_row }}--phone 1/2--tablet 1/{{ section.settings.grid_desktop_items_per_row }}--lap-and-up">
-                  <img src="{{ block.settings.image.src | img_url: "medium"}}" />
-                </div>
-              {%- endfor -%}
-            </div>
-          {%- else -%}
-            <div class="ProductList ProductList--carousel Carousel" data-flickity-config='{{ flickity_options }}'>
-              {%- for block in section.blocks -%}
-                <div class="Carousel__Cell">
-                <div class="ProductItem ">
-                  <div class="ProductItem__Wrapper" swatch-generated="none">
-                  <a href="{{ block.settings.shade_url.url }}" class="ProductItem__ImageWrapper ">
-                    <div class="AspectRatio AspectRatio--short">
-                    <img class="ProductItem__Image" src="{{ block.settings.image.src | img_url: "medium"}}" />
-                    </div>
-                  </a>
-                      <span class="Image__Loader"></span>
-                      <div class="ProductItem__Info ProductItem__Info--center">
-                        <h2 class="ProductItem__Title Heading">
-                          <a href="{{ block.settings.shade_url.url }}">
-                          {{ block.settings.title }}
-                          </a>
-                        </h2>
-                      </div>
-                </div>
-                </div>
-                </div>
-              {%- endfor -%}
-            </div>
-          {%- endif -%}
-      </div>
-      {%- if section.settings.button_text != blank -%}
-        <div class="Container">
-          <div class="SectionFooter">
-            <a href="{{ section.settings.button_url }}" class="Button Button--primary">{{ section.settings.button_text | escape }}</a>
-          </div>
-        </div>
-      {%- endif -%}
-    </div>
-  {%- endfor -%}
-</section>
-
-{%- capture hack -%}
-{%- comment -%}This is just an ugly hack to make those variables appear as part of the theme editor in the General Settings{%- endcomment -%}
-{% if section.settings.layout_mode == 'grid' %}{{ settings.product_list_horizontal_spacing }},{{ settings.product_list_vertical_spacing }}{% endif %}
-{%- endcapture -%}
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Find the carousel element and initialize Flickity
-    var carousel = document.querySelector('.ProductList--carousel');
-    if (carousel) {
-      var flickityConfig = JSON.parse(carousel.getAttribute('data-flickity-config'));
-      new Flickity(carousel, flickityConfig);
+{%- if section.blocks.size > 0 -%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      --product-list-items-per-row: {{ section.settings.products_per_row_mobile | times: 1 }};
+      --product-list-horizontal-spacing-factor: {{ section.settings.horizontal_spacing_factor }};
+      --product-list-vertical-spacing-factor: {{ section.settings.vertical_spacing_factor }};
     }
-  });
-</script>
+
+    @media screen and (min-width: 700px) {
+      #shopify-section-{{ section.id }} {
+        --product-list-items-per-row: {{ section.settings.products_per_row_desktop }};
+      }
+    }
+  </style>
+
+  <div class="section-spacing {% if section.settings.separate_section_with_border %}bordered-section{% endif %}">
+    <div class="container">
+      {%- assign wrapper_carousel_id = 'featured-collections-carousel-' | append: section.id -%}
+
+      <div class="section-stack">
+        <div class="v-stack justify-self-center gap-4 text-center sm:gap-5">
+          {%- if section.settings.subheading != blank -%}
+            <p class="h6 text-center">{{- section.settings.subheading -}}</p>
+          {%- endif -%}
+
+          {%- if section.blocks.size > 1 -%}
+            <carousel-navigation align-selected class="featured-collections-navigation scroll-area bleed" aria-controls="{{ wrapper_carousel_id }}">
+              {%- for block in section.blocks -%}
+                <button class="h2" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
+                  {{- block.settings.title | default: block.settings.collection.title | default: 'Collection' -}}
+                </button>
+              {%- endfor -%}
+            </carousel-navigation>
+          {%- else -%}
+            <p class="h2">{{ section.blocks.first.settings.title | default: section.blocks.first.settings.collection.title | default: 'Collection' }}</p>
+          {%- endif -%}
+        </div>
+
+        <featured-collections-carousel id="{{ wrapper_carousel_id }}" class="featured-collections-carousel">
+          {%- for block in section.blocks -%}
+            <div class="featured-collections-carousel__item {% if forloop.first %}is-selected{% endif %}" {{ block.shopify_attributes }}>
+              {%- capture product_list -%}
+                {%- assign should_reveal = false -%}
+
+                {%- if settings.stagger_products_apparition and forloop.first -%}
+                  {%- assign should_reveal = true -%}
+                {%- endif -%}
+
+                {%- for product in block.settings.collection.products limit: block.settings.products_count -%}
+                  {%- render 'product-card', product: product, reveal: should_reveal, hide_product_information: section.settings.hide_product_information, block: block -%}
+                {%- else -%}
+                  {%- for i in (1..block.settings.products_count) -%}
+                    {%- render 'product-card-placeholder', reveal: should_reveal, loop_index: forloop.index0, hide_product_information: section.settings.hide_product_information -%}
+                  {%- endfor -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+
+              {%- if section.settings.stack_products -%}
+                <product-list class="product-list {% if section.settings.hide_product_information %}product-list--compact{% endif %} justify-center">
+                  {{- product_list -}}
+                </product-list>
+              {%- else -%}
+                {%- assign product_carousel_id = 'featured-collections-product-list-carousel-' | append: block.id -%}
+
+                <product-list class="floating-controls-container floating-controls-container--inside floating-controls-container--on-hover">
+                  <scroll-carousel id="{{ product_carousel_id }}" group-cells allow-drag class="product-list {% if section.settings.hide_product_information %}product-list--compact{% endif %} product-list--carousel scroll-area bleed md:unbleed">
+                    {{- product_list -}}
+                  </scroll-carousel>
+
+                  <button is="carousel-prev-button" type="button" class="prev-next-button prev-next-button--prev circle-button hover:animate-icon-inline" aria-controls="{{ product_carousel_id }}" disabled>
+                    <span class="sr-only">{{ 'general.accessibility.previous' | t }}</span>
+                    {%- render 'icon' with 'arrow-left', direction_aware: true -%}
+                  </button>
+
+                  <button is="carousel-next-button" type="button" class="prev-next-button prev-next-button--next circle-button hover:animate-icon-inline" aria-controls="{{ product_carousel_id }}">
+                    <span class="sr-only">{{ 'general.accessibility.next' | t }}</span>
+                    {%- render 'icon' with 'arrow-right', direction_aware: true -%}
+                  </button>
+                </product-list>
+              {%- endif -%}
+
+              {%- if block.settings.link_text != blank -%}
+                {%- assign button_link = block.settings.link_url | default: block.settings.collection.url | default: '#' -%}
+
+                <div class="justify-self-center">
+                  {%- render 'button', href: button_link, content: block.settings.link_text -%}
+                </div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </featured-collections-carousel>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
