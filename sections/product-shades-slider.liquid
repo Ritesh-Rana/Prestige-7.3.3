@@ -83,6 +83,16 @@
 {%- comment -%}This is just an ugly hack to make those variables appear as part of the theme editor in the General Settings{%- endcomment -%}
 {% if section.settings.layout_mode == 'grid' %}{{ settings.product_list_horizontal_spacing }},{{ settings.product_list_vertical_spacing }}{% endif %}
 {%- endcapture -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Find the carousel element and initialize Flickity
+    var carousel = document.querySelector('.ProductList--carousel');
+    if (carousel) {
+      var flickityConfig = JSON.parse(carousel.getAttribute('data-flickity-config'));
+      new Flickity(carousel, flickityConfig);
+    }
+  });
+</script>
 
 {% schema %}
 {
