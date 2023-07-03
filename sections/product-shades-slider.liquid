@@ -40,19 +40,27 @@
           {%- for block in section.blocks -%}
             <div class="featured-collections-carousel__item {% if forloop.first %}is-selected{% endif %}" {{ block.shopify_attributes }}>
               {%- capture product_list -%}
-                {%- assign should_reveal = false -%}
-
-                {%- if settings.stagger_products_apparition and forloop.first -%}
-                  {%- assign should_reveal = true -%}
-                {%- endif -%}
-
-                {%- for product in block.settings.collection.products limit: block.settings.products_count -%}
-                  {%- render 'product-card', product: product, reveal: should_reveal, hide_product_information: section.settings.hide_product_information, block: block -%}
-                {%- else -%}
-                  {%- for i in (1..block.settings.products_count) -%}
-                    {%- render 'product-card-placeholder', reveal: should_reveal, loop_index: forloop.index0, hide_product_information: section.settings.hide_product_information -%}
-                  {%- endfor -%}
-                {%- endfor -%}
+                {%- for block in section.blocks -%}
+                <div class="Carousel__Cell">
+                <div class="ProductItem ">
+                  <div class="ProductItem__Wrapper" swatch-generated="none">
+                  <a href="{{ block.settings.shade_url.url }}" class="ProductItem__ImageWrapper ">
+                    <div class="AspectRatio AspectRatio--short">
+                    <img class="ProductItem__Image" src="{{ block.settings.image.src | img_url: "medium"}}" />
+                    </div>
+                  </a>
+                      <span class="Image__Loader"></span>
+                      <div class="ProductItem__Info ProductItem__Info--center">
+                        <h2 class="ProductItem__Title Heading">
+                          <a href="{{ block.settings.shade_url.url }}">
+                          {{ block.settings.title }}
+                          </a>
+                        </h2>
+                      </div>
+                </div>
+                </div>
+                </div>
+              {%- endfor -%}
               {%- endcapture -%}
 
               {%- if section.settings.stack_products -%}
