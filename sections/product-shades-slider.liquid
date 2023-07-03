@@ -55,9 +55,11 @@
               {%- capture product_list -%}
                 {%- for block in section.blocks -%}
                   <product-card class="product-card">
-                  <a href="{{ block.settings.shade_url.url }}" class="ProductItem__ImageWrapper ">
-                    <img class="ProductItem__Image" src="{{ block.settings.image.src | img_url: "medium"}}" />
-                  </a>
+                    <div class="product-card__figure">
+                      <a href="{{ block.settings.shade_url.url }}" class="product-card__media">
+                        <img class="product-card__image product-card__image--primary  aspect-square" src="{{ block.settings.image.src | img_url: "medium"}}" />
+                      </a>
+                    </div>
                   </product-card>
               {%- endfor -%}
               {%- endcapture -%}
