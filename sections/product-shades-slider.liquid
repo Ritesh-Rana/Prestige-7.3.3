@@ -83,19 +83,7 @@
 {%- comment -%}This is just an ugly hack to make those variables appear as part of the theme editor in the General Settings{%- endcomment -%}
 {% if section.settings.layout_mode == 'grid' %}{{ settings.product_list_horizontal_spacing }},{{ settings.product_list_vertical_spacing }}{% endif %}
 {%- endcapture -%}
-<script>
-  (function($) {
-  // Wait for the DOM to be ready
-  $(document).ready(function() {
-    // Find the carousel element and initialize Flickity
-    var $carousel = $('.ProductList--carousel');
-    if ($carousel.length) {
-      var flickityConfig = $carousel.data('flickity-config');
-      $carousel.flickity(flickityConfig);
-    }
-  });
-})(jQuery);
-</script>
+
 {% schema %}
 {
   "name": "Shades Slider",
@@ -160,12 +148,8 @@
     {
       "category": "Image",
       "name": "Featured Shades",
-      "settings": {},
-      "blocks": [
-        {
-          "type": "image"
-        }
-      ]
+      "settings": {}
+      
     }
   ]
 }
