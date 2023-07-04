@@ -89,14 +89,13 @@
                 </product-list>
               {%- endif -%}
 
-              {%- if block.settings.button_text != blank -%}
+              {%- if section.settings.button_text != blank -%}
                 {%- assign button_link = block.settings.link_url
-                  | default: block.settings.collection.url
                   | default: '#'
                 -%}
 
                 <div class="justify-self-center">
-                  {%- render 'button', href: button_link, content: block.settings.button_text -%}
+                  {%- render 'button', href: button_link, content: section.settings.button_text -%}
                 </div>
               {%- endif -%}
             </div>
