@@ -76,7 +76,7 @@
           "type": "image",
           "settings": {
             "image": "shopify:\/\/shop_images\/Napoleon_LINERSHERO4.1_EXTRA4SHADES_b1700e5c-f3fc-4d26-8efb-469613a4134a.jpg",
-            "title": "Dark",
+            "title": "AFTER DARK",
             "shade_url": "https:\/\/fb.com"
           }
         },
@@ -129,8 +129,8 @@
       "settings": {
         "title": "COLOUR RITUAL EYESHADOW QUAD",
         "layout_mode": "carousel",
-        "button_text": "View all products",
-        "button_url": "",
+        "button_text": "FIND YOUR SHADE",
+        "button_url": "https:\/\/napoleonperdis.com\/products\/colour-ritual-eyeshadow-quad-1",
         "products_per_row_mobile": "2",
         "products_per_row_desktop": 4,
         "horizontal_spacing_factor": 1,
