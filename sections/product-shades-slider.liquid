@@ -29,11 +29,6 @@
               class="featured-collections-navigation scroll-area bleed"
               aria-controls="{{ wrapper_carousel_id }}"
             >
-              {%- for block in section.blocks -%}
-                <button class="h2" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
-                  {{- block.settings.title | default: block.settings.collection.title | default: 'Collection' -}}
-                </button>
-              {%- endfor -%}
             </carousel-navigation>
           {%- else -%}
             <p class="h2">
