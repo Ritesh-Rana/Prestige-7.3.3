@@ -38,6 +38,13 @@
                         <img class="product-card__image product-card__image--primary  aspect-square" src="{{ block.settings.image.src | img_url: "medium"}}" />
                       </a>
                     </div>
+                    <div class="product-card__info empty:hidden">
+                      <div class="v-stack justify-items-center gap-2">
+                        <div class="v-stack justify-items-center gap-1">
+                          <p>Test</p>
+                        </div>
+                      </div>
+                    </div>
                   </product-card>
               {%- endfor -%}
               {%- endcapture -%}
