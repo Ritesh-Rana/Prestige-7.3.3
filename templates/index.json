@@ -95,12 +95,36 @@
             "title": "Test",
             "shade_url": ""
           }
+        },
+        "18761344-40c1-46c8-858b-24925c7b6f28": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
+        },
+        "96594abb-7010-4ac2-b866-272c42428966": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
+        },
+        "bc19ace5-fdff-463a-8f71-f64e44ad06c7": {
+          "type": "image",
+          "settings": {
+            "title": "",
+            "shade_url": ""
+          }
         }
       },
       "block_order": [
         "1f867af8-261b-4cc8-a6af-359216894663",
         "7fd09e11-4b6f-4d0e-be12-5d4133dc3956",
-        "70988cf1-f4d7-403f-95d2-0697366c67e6"
+        "70988cf1-f4d7-403f-95d2-0697366c67e6",
+        "18761344-40c1-46c8-858b-24925c7b6f28",
+        "96594abb-7010-4ac2-b866-272c42428966",
+        "bc19ace5-fdff-463a-8f71-f64e44ad06c7"
       ],
       "settings": {
         "title": "Featured Shades",
