@@ -22,23 +22,6 @@
           {%- if section.settings.title != blank -%}
             <p class="h2 text-center">{{- section.settings.title -}}</p>
           {%- endif -%}
-
-          {%- if section.blocks.size > 1 -%}
-            <carousel-navigation
-              align-selected
-              class="featured-collections-navigation scroll-area bleed"
-              aria-controls="{{ wrapper_carousel_id }}"
-            >
-            </carousel-navigation>
-          {%- else -%}
-            <p class="h2">
-              {{
-                section.blocks.first.settings.title
-                | default: section.blocks.first.settings.collection.title
-                | default: 'Collection'
-              }}
-            </p>
-          {%- endif -%}
         </div>
 
         <featured-collections-carousel id="{{ wrapper_carousel_id }}" class="featured-collections-carousel">
