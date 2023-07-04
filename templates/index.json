@@ -108,9 +108,9 @@
         "button_text": "View all products",
         "button_url": "",
         "products_per_row_mobile": "2",
-        "products_per_row_desktop": 2,
-        "horizontal_spacing_factor": 0.2,
-        "vertical_spacing_factor": 0.2
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1
       }
     },
     "81a35186-5fe6-4c4e-b571-b863af9e9fb7": {
