@@ -22,21 +22,15 @@
           "settings": {
             "menu": "footer"
           }
-        },
-        "87474f88-8b58-46a1-b724-84f7312eeb2a": {
-          "type": "links",
-          "settings": {
-            "menu": "footer"
-          }
         }
       },
       "block_order": [
         "9b5a9729-19db-46bf-aed4-03b8e15185a8",
         "2a0891b9-a3da-46d7-a15e-7a78a76b3e5c",
-        "9ebdcbba-231e-4965-9a8b-e3c592600525",
-        "87474f88-8b58-46a1-b724-84f7312eeb2a"
+        "9ebdcbba-231e-4965-9a8b-e3c592600525"
       ],
       "settings": {
+        "show_payment_methods": true
       }
     }
   },
