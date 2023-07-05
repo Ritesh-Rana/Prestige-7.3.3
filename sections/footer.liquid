@@ -176,56 +176,198 @@
 </footer>
 
 <style>
-  @media screen and (min-width: 641px)
 .Footer {
-    padding: 75px 0 42px;
-}
+  padding: 34px 0;
+  background: #d4c58f;
+  color: black; }
+
+.Footer--withMargin {
+  margin-top: 60px; }
+
+.Footer .Heading,
+.Footer .Link--primary:hover {
+  color: #454545; }
+
+.Footer .Link--secondary:hover,
+.Footer .Form__Input::-webkit-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-text::-webkit-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-text::-webkit-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-email::-webkit-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-email::-webkit-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-textarea::-webkit-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-textarea::-webkit-input-placeholder {
+  color: black; }
+
+.Footer .Link--secondary:hover,
+.Footer .Form__Input::-moz-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-text::-moz-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-text::-moz-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-email::-moz-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-email::-moz-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-textarea::-moz-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-textarea::-moz-placeholder {
+  color: black; }
+
+.Footer .Link--secondary:hover,
+.Footer .Form__Input:-ms-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-text:-ms-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-text:-ms-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-email:-ms-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-email:-ms-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-textarea:-ms-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-textarea:-ms-input-placeholder {
+  color: black; }
+
+.Footer .Link--secondary:hover,
+.Footer .Form__Input::-ms-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-text::-ms-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-text::-ms-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-email::-ms-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-email::-ms-input-placeholder,
+.Footer #shopify-product-reviews .spr-form-input-textarea::-ms-input-placeholder,
+#shopify-product-reviews .Footer .spr-form-input-textarea::-ms-input-placeholder {
+  color: black; }
+
+.Footer .Link--secondary:hover,
+.Footer .Form__Input::placeholder,
+.Footer #shopify-product-reviews .spr-form-input-text::placeholder,
+#shopify-product-reviews .Footer .spr-form-input-text::placeholder,
+.Footer #shopify-product-reviews .spr-form-input-email::placeholder,
+#shopify-product-reviews .Footer .spr-form-input-email::placeholder,
+.Footer #shopify-product-reviews .spr-form-input-textarea::placeholder,
+#shopify-product-reviews .Footer .spr-form-input-textarea::placeholder {
+  color: black; }
+
+.Footer__Block {
+  margin-top: 48px; }
+  .Footer__Block:first-child {
+    margin-top: 0; }
+
+.Footer__Title {
+  margin-bottom: 20px; }
+
+.Footer__Social {
+  margin-top: 5px; }
+
+.Footer__Content + .Footer__Newsletter {
+  margin-top: 18px; }
+
+.Footer__Aside {
+  text-align: center; }
+
+.Footer__Inner + .Footer__Aside {
+  margin-top: 65px; }
+
+.Footer__ThemeAuthor {
+  margin-top: 4px; }
+
+.Footer__PaymentList {
+  margin: 54px -24px 0 -24px;
+  padding-top: 28px;
+  border-top: 1px solid #b4a77a; }
+
+.Footer__PaymentList svg {
+  opacity: 1;
+  width: 38px;
+  height: 24px; }
+
+@media screen and (min-width: 641px) {
   .Footer {
-    padding: 34px 0;
-    background: #d4c58f;
-    color: #000;
-}
-  @media screen and (min-width: 1240px)
-.Container {
-    padding: 0 80px;
-}
-  @media screen and (min-width: 641px)
-.Container {
-    padding: 0 50px;
-}
-  .Container {
-    margin: 0 auto;
-    padding: 0 24px;
-}
-@media screen and (min-width: 641px)
-.Footer__Inner {
+    padding: 75px 0 42px 0; }
+
+  .Footer--withMargin {
+    margin-top: 80px; }
+
+  .Footer__Inner {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-left: -40px;
-    margin-right: -40px;
-}
-  @media screen and (min-width: 1240px)
-.Footer__Inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-  @media screen and (min-width: 1240px)
-.Footer__Block {
-    flex: 0 1 auto;
-}
-  @media screen and (min-width: 641px)
-.Footer__Block {
+    margin-right: -40px; }
+
+  .Footer__Block {
     flex: 1 1 50%;
     margin-top: 0;
     margin-bottom: 50px;
     padding-left: 40px;
-    padding-right: 40px;
-}
+    padding-right: 40px; }
+
+  .Footer__Social {
+    margin-top: 14px; }
+
+  .Footer__Aside {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+
+  .Footer__Inner + .Footer__Aside {
+    margin-top: 80px;
+    margin-bottom: 10px; }
+
+  .Footer__StoreName {
+    font-size: 11px; }
+
+  .Footer__PaymentList {
+    padding: 0;
+    margin: 0 -8px;
+    border: none; } }
+@media screen and (min-width: 1240px) {
+  .Footer--withMargin {
+    margin-top: 120px; }
+
+  .Footer__Inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+
+  .Footer--center .Footer__Inner {
+    justify-content: center; }
+
   .Footer__Block {
-    margin-top: 48px;
-}
+    flex: 0 1 auto; }
+
+  .Footer__Block--text,
+  .Footer__Block--newsletter {
+    flex-basis: 240px; } }
+@media screen and (min-width: 1240px) {
+  .Footer__Block--text {
+    flex-basis: 460px; }
+
+  .Footer__Block--newsletter {
+    flex-basis: 375px; } }
+.GiftCard {
+  text-align: center; }
+
+.GiftCard__Wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto; }
+
+.GiftCard__Redeem {
+  margin-bottom: 30px; }
+
+.GiftCard__IllustrationWrapper {
+  position: relative;
+  margin: 40px 0; }
+
+.GiftCard__CodeHolder {
+  position: absolute;
+  display: inline-block;
+  margin: 0 auto;
+  bottom: 20px;
+  left: 50%;
+  white-space: nowrap;
+  padding: 12px 20px;
+  background: #ffffff;
+  border-radius: 3px;
+  transform: translateX(-50%); }
+
+.GiftCard__QrCode {
+  margin: 20px 0; }
+
+.GiftCard__QrCode img {
+  margin: 0 auto; }
 </style>
                             
 {% schema %}
