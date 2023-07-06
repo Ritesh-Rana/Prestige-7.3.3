@@ -81,7 +81,7 @@ Supported variables
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
             <button type="submit" class="product-card__quick-add-button">
               <span class="sr-only">{{ 'product.general.add_to_cart_button' | t }}</span>
-              Add to Cart
+              {%- render 'icon' with 'plus' -%}
             </button>
           {%- endform -%}
         {%- else -%}
@@ -89,7 +89,7 @@ Supported variables
 
           <button type="button" aria-controls="{{ quick_buy_id }}" class="product-card__quick-add-button">
             <span class="sr-only">{{ 'product.general.choose_options' | t }}</span>
-            Add to Cart
+            {%- render 'icon' with 'plus' -%}
           </button>
 
           <quick-buy-modal handle="{{ product.handle }}" class="quick-buy-modal modal" id="{{ quick_buy_id }}">
