@@ -22,7 +22,7 @@
     "button_letter_spacing": 18,
     "product_image_aspect_ratio": "square",
     "product_color_display": "hide",
-    "show_quick_buy": false,
+    "show_quick_buy": true,
     "cart_type": "page",
     "heading_color": "#1c1c1c",
     "content_for_index": [
