@@ -170,7 +170,7 @@ Supported variables
     <!--       Add to cart button -->
       {%- form 'product', product, is: 'product-form' -%}
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                <button type="submit" class="product-card__quick-add-button">
+                <button type="submit" class="justify-self-center">
                   <span class="sr-only">{{ 'product.general.add_to_cart_button' | t }}</span>
                   Add to cart
                 </button>
