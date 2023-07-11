@@ -44,7 +44,7 @@ Supported variables
   endif
 -%}
 
-<product-card class="product-card" {% if reveal %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}">
+<product-card class="product-card" {% if reveal %}reveal-on-scroll="true"{% endif %} handle="{{ product.handle | escape }}" style="min-height:60px;max-height:60px">
   {%- comment -%}
   --------------------------------------------------------------------------------------------------------------------
   PRODUCT MEDIA
