@@ -134,6 +134,14 @@ Supported variables
         {%- endif -%}
       </div>
     {%- endif -%}
+          <form action="/cart/add" method="post" id="product-form-{{ product.id }}" ga-target="{%- if product.variants.size > 1 -%}{{ product.url | within: collection }}{%- else -%}{% if eventtitle != blank %}{{ eventtitle }} - {% endif %}
+            {% if product.metafields.product.title != blank %}
+    		{{ product.metafields.product.title }}
+    	{% else %}
+    		{{ product.title }}
+    	{% endif %}
+      {%- endif -%}">
+            </form>
     {%- if show_swatches and settings.product_color_display != 'hide' -%}
       {%- assign color_label_list = 'general.label.color' | t | replace: ', ', ',' | downcase | split: ',' -%}
 
