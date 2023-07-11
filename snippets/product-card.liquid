@@ -172,9 +172,7 @@ Supported variables
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                 <button type="submit" class="product-card__quick-add-butto">
                   <span class="sr-only">{{ 'product.general.add_to_cart_button' | t }}</span>
-<!--                   <button>Add to cart</button> -->
-            {%- render 'icon' with '21buttons' -%}
-                  
+                  <button>Add to cart</button>
                 </button>
       {%- endform -%}
     
