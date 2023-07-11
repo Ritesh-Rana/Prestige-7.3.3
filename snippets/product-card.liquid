@@ -166,6 +166,8 @@ Supported variables
       {%- endfor -%}
       
     {%- endif -%}
+      
+    <!--       Add to cart button -->
       {%- form 'product', product, is: 'product-form' -%}
                 <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                 <button type="submit" class="product-card__quick-add-butto">
@@ -173,6 +175,7 @@ Supported variables
                   <button>Add to cart</button>
                 </button>
       {%- endform -%}
+    
     {%- if show_rating -%}
       {%- render 'product-rating', product: product, show_empty: settings.show_product_rating_if_empty, display_mode: settings.product_rating_mode -%}
     {%- endif -%}
