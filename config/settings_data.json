@@ -23,7 +23,7 @@
     "product_image_aspect_ratio": "square",
     "product_color_display": "hide",
     "show_quick_buy": false,
-    "cart_type": "message",
+    "cart_type": "page",
     "cart_show_free_shipping_bar": true,
     "heading_color": "#1c1c1c",
     "content_for_index": [
