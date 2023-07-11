@@ -96,6 +96,7 @@ Supported variables
           </quick-buy-modal>
         {%- endif -%}
       {%- endif -%}
+    </div>
     <form action="/cart/add" method="post" id="product-form-{{ product.id }}" ga-target="{%- if product.variants.size > 1 -%}{{ product.url | within: collection }}{%- else -%}{% if eventtitle != blank %}{{ eventtitle }} - {% endif %}
 	{% if product.metafields.product.title != blank %}
 		{{ product.metafields.product.title }}
@@ -125,7 +126,6 @@ Supported variables
 
     </div>  
   </form>
-    </div>
   {%- endif -%}
 
   {%- comment -%}
