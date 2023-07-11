@@ -95,5 +95,36 @@
     {%- if request.page_type != 'password' -%}
       {%- sections 'footer-group' -%}
     {%- endif -%}
+    <div class="template-cart ajax-popup">
+      <div id="add-to-cart" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="add-to-cart-close close">&times;</span>
+          <strong class="title">Added To Bag</strong>
+          <div id="p-float" class="free-gifts">
+            <div class="p-float">
+              <div class="p-float-in">
+                <img class="p-img" src=""/>
+                <div class="Alert--error"></div>
+              </div>
+            </div>
+            <div class="p-float p-float-buttons">
+              <div class="product_data">
+                <div class="p-name"></div>
+                <div class="product_qty_price">
+                  QTY. <span id="added-qty"> X </span> @ <span id="added-price">$PRICE</span> AUD
+                </div>
+              </div>
+              <div class="p-float-in">
+                <a class="continue_shopping continue ProductForm__AddToCart Button Button--primary Button--full" href="javascript:void(0)" onclick="jQuery('.add-to-cart-close').trigger('click');">Continue Shopping</a>
+                <a href="/cart" class="view_cart ProductForm__AddToCart Button Button--primary Button--full">View Bag</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </body>
 </html>
