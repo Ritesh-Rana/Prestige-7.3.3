@@ -167,35 +167,48 @@ Supported variables
       
     {%- endif -%}
       
-   <button id="addToCartButton-{{ product.selected_or_first_available_variant.id }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
-  <span>Add to cart</span>
-</button>
-<script>
-
-    $('#addToCartButton-{{ product.selected_or_first_available_variant.id }}').click(function(e) {
-      
-
-      var productId = '{{ product.selected_or_first_available_variant.id }}';
-
-      $.ajax({
-        type: 'POST',
-        url: '/cart/add.js',
-        data: {
-          id: productId,
-          quantity: 1
-        },
-        dataType: 'json',
-        success: function(response) {
-          // Handle the success response here
-          console.log(response);
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {
-          // Handle the error response here
-          console.log('Error: ' + errorThrown);
-        }
+      <button id="addToCartButton" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
+        <span>Add to cart</span>
+      </button>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var addToCartButton = document.getElementById('addToCartButton');
+        addToCartButton.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent the default form submission
+    
+          var productId = '{{ product.selected_or_first_available_variant.id }}';
+          var xhr = new XMLHttpRequest();
+    
+          xhr.open('POST', '/cart/add.js', true);
+          xhr.setRequestHeader('Content-Type', 'application/json');
+    
+          xhr.onload = function() {
+            if (xhr.status === 200) {
+              var response = JSON.parse(xhr.responseText);
+              // Handle the success response here
+              console.log(response);
+            } else {
+              // Handle the error response here
+              console.log('Error: ' + xhr.status);
+            }
+          };
+    
+          xhr.onerror = function() {
+            // Handle the error response here
+            console.log('Request failed');
+          };
+    
+          var data = JSON.stringify({
+            id: productId,
+            quantity: 1
+          });
+    
+          xhr.send(data);
+        });
       });
-    });
-</script>
+     </script>
+
 
     
     {%- if show_rating -%}
