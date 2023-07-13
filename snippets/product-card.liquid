@@ -239,7 +239,29 @@ Supported variables
     });
   });
 </script>
+<script>
+  var addtocartmodal = document.getElementById("add-to-cart");
+var closeButton = document.getElementsByClassName("add-to-cart-close")[0];
+if(closeButton) {
+  closeButton.onclick = function(event) {
+    addtocartmodal.style.display = "none";
+    ajaxhideOverlay();
+    if(Shopify.cart != null) {
+      location.href = window.location.href;
+    }
+    jQuery('.adding').parent().removeAttr('disabled');
+    jQuery('.adding').html(jQuery('.adding').attr('button-text'));
+    jQuery('.adding').removeClass('adding');
+    jQuery('.adding1').parent().removeAttr('disabled');
+    jQuery('.adding1').html(jQuery('.adding1').attr('button-text'));
+    jQuery('.adding1').removeClass('adding1');
+    jQuery('#add-to-cart .p-img').show();
+    jQuery('#add-to-cart .p-name').show();
+    jQuery('#add-to-cart .Alert--error').html('');
+  }
+}
 
+</script>
 
     
     {%- if show_rating -%}
