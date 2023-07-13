@@ -172,9 +172,11 @@ Supported variables
               <span>ADD TO BAG</span>
             </button>
         {% else %}
-          <button type="submit" id="addToCartButton-{{ product.selected_or_first_available_variant.id }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
+          <a href="{{ product.url }}">
+          <button class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
               <span>VIEW SHADES</span>
           </button>
+          </a>
         {% endif %}
       </form>
     
