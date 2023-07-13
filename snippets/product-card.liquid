@@ -207,7 +207,7 @@ Supported variables
           addedPriceElement.textContent = response.price;
 
           var productImageElement = modal.querySelector('.p-img');
-          productImageElement.src = response.image_src;
+          productImageElement.src = response.image;
         } else {
           // Handle the error response here
           console.log('Error: ' + xhr.status);
