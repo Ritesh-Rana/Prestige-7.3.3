@@ -200,9 +200,14 @@ Supported variables
 
           var addedQtyElement = document.querySelector('#added-qty');
           addedQtyElement.textContent = 1;
-console.log(response)
+           
+          console.log(response)
+          
           var addedPriceElement = document.querySelector('#added-price');
           addedPriceElement.textContent = response.price;
+
+          var productImageElement = modal.querySelector('.p-img');
+          productImageElement.src = response.image_src;
         } else {
           // Handle the error response here
           console.log('Error: ' + xhr.status);
