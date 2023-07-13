@@ -167,13 +167,39 @@ Supported variables
       
     {%- endif -%}
       
-    <!--       Add to cart button -->
-      {%- form 'product', product, is: 'product-form' -%}
-                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                <button type="submit" class="ProductForm__AddToCart Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
-                  <span>Add to cart</span>
-                </button>
-      {%- endform -%}
+   <button id="addToCartButton" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
+  <span>Add to cart</span>
+</button>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#addToCartButton').click(function(e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      var productId = '{{ product.selected_or_first_available_variant.id }}';
+
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+          id: productId,
+          quantity: 1
+        },
+        dataType: 'json',
+        success: function(response) {
+          // Handle the success response here
+          console.log(response);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+          // Handle the error response here
+          console.log('Error: ' + errorThrown);
+        }
+      });
+    });
+  });
+</script>
+
     
     {%- if show_rating -%}
       {%- render 'product-rating', product: product, show_empty: settings.show_product_rating_if_empty, display_mode: settings.product_rating_mode -%}
