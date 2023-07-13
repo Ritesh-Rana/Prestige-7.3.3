@@ -184,7 +184,7 @@ Supported variables
    <script>
   document.addEventListener('DOMContentLoaded', function() {
     var addToCartButton = document.getElementById('addToCartButton-{{ product.selected_or_first_available_variant.id }}');
-    addToCartButton.addEventListener('click', function(e) {
+    addToCartButton.addEventListener('click', function(e) { 
       e.preventDefault(); // Prevent the default form submission
 
       var productId = '{{ product.selected_or_first_available_variant.id }}';
