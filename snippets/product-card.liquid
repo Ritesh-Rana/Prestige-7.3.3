@@ -166,19 +166,19 @@ Supported variables
       {%- endfor -%}
       
     {%- endif -%}
-      <form method="post" action='/cart/add' class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn">
         {% if product.variants.size <= 1 %}
+      <form method="post" action='/cart/add' class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn">
             <button type="submit" id="addToCartButton-{{ product.selected_or_first_available_variant.id }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
               <span>ADD TO BAG</span>
             </button>
+      </form>
         {% else %}
-          <a href="{{ product.url }}">
+      <a href="{{ product.url }}">
           <button class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
               <span>VIEW SHADES</span>
           </button>
           </a>
         {% endif %}
-      </form>
     
    <script>
   document.addEventListener('DOMContentLoaded', function() {
