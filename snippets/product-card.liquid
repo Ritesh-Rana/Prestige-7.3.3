@@ -167,16 +167,14 @@ Supported variables
       
     {%- endif -%}
       
-      <button id="addToCartButton" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
+      <button id="addToCartButton-{{ product.selected_or_first_available_variant.id }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
         <span>Add to cart</span>
       </button>
     
     <script>
       document.addEventListener('DOMContentLoaded', function() {
-        var addToCartButton = document.getElementById('addToCartButton');
+        var addToCartButton = document.getElementById('addToCartButton-{{ product.selected_or_first_available_variant.id }}');
         addToCartButton.addEventListener('click', function(e) {
-          e.preventDefault(); // Prevent the default form submission
-    
           var productId = '{{ product.selected_or_first_available_variant.id }}';
           var xhr = new XMLHttpRequest();
     
