@@ -125,20 +125,139 @@
         </div>
       </div>
     </div>
-    <style>
- @media only screen and (min-width: 426px) and (max-width:640px) {
-  .ajax-popup .ProductForm__AddToCart.Button.Button--primary.Button--full {
-    padding: 4px;
-    font-size: 11px;
+<style>
+  .template-cart .model {
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 15%;
+      width: 100%;
+      height: 100%;
   }
+  .ajax-popup .modal-content {
+    position: relative;
+    padding: 15px 20px 20px;
+    max-width: 1200px;
+  }
+  .ajax-popup .modal-content {
+    box-shadow: 0 15px 45px -14px #000000bf;
 }
-.template-cart .model {
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 15%;
-    width: 100%;
-    height: 100%;
+  .template-cart .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+}
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+  .ajax-popup .close {
+    background: #000;
+    width: 30px;
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: 700;
+}
+  .ajax-popup .modal-content strong.title {
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 28px;
+    color: #000;
+    position: relative;
+    top: 3px;
+}
+  .template-cart #p-float {
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: auto;
+}
+.ajax-popup .free-gifts {
+    margin-top: 15px!important;
+    margin-bottom: 35px!important;
+}
+  .ajax-popup .free-gifts .p-float {
+    width: 40%;
+}
+.template-cart div.p-float {
+    float: left;
+    width: 50%;
+}
+  .ajax-popup div.p-float-in {
+    border: none!important;
+}
+.template-cart div.p-float-in {
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #f2dcdc;
+    background: #fff;
+}
+  .template-cart img.p-img {
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+}
+.ajax-popup .p-img {
+    border: 2px solid #e6d9d9;
+    height: 250px!important;
+    width: 250px;
+    object-fit: contain;
+}
+  .Alert--error, #shopify-product-reviews .spr-form-message-error {
+    background: #e4c4c4;
+    color: #cb2b2b;
+}
+  .ajax-popup .free-gifts .p-float-buttons {
+    width: 60%;
+    padding-top: 50px;
+}
+.ajax-popup .free-gifts .p-float {
+    width: 40%;
+}
+.template-cart div.p-float {
+    float: left;
+    width: 50%;
+}
+  .ajax-popup .free-gifts .p-float-buttons .product_data {
+    width: 90%;
+    margin: 0 auto 0 0;
+}
+.ajax-popup .product_data {
+    font-size: 17px;
+}
+  .ajax-popup .product_data .p-name {
+    font-weight: 500;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+.ajax-popup div.p-name {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.template-cart div.p-name {
+    font-weight: 700;
+    text-align: center;
+}
+  .ajax-popup .product_data .product_qty_price {
+    font-weight: 700;
+}
+  img {
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+    vertical-align: top;
 }
 </style>
   </body>
