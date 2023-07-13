@@ -173,7 +173,7 @@ Supported variables
 <script>
 
     $('#addToCartButton-{{ product.selected_or_first_available_variant.id }}').click(function(e) {
-      e.preventDefault(); // Prevent the default form submission
+      
 
       var productId = '{{ product.selected_or_first_available_variant.id }}';
 
