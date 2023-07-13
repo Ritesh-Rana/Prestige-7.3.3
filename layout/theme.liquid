@@ -125,6 +125,77 @@
         </div>
       </div>
     </div>
+    <style>
+  .template-cart.ajax-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 9999;
+    display: none;
+    animation: fade-in 0.3s ease-in-out;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .modal-content {
+    text-align: center;
+  }
+
+  .add-to-cart-close {
+    float: right;
+    cursor: pointer;
+  }
+
+  .title {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .p-img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .p-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  .product_qty_price {
+    margin-top: 5px;
+    font-size: 14px;
+  }
+
+  .continue_shopping,
+  .view_cart {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #000;
+    border: none;
+    border-radius: 3px;
+  }
+
+  .continue_shopping {
+    margin-right: 10px;
+  }
+</style>
   </body>
 
 </html>
