@@ -151,7 +151,10 @@
 
   // close pop-up event
     const close = document.getElementsByClassName("add-to-cart-close");
-    close.addEventListner("click",closePopUp);
+   close.forEach(close => {
+      close.addEventListner("click",closePopUp);
+    });
+
   
   // Attach the click event listener to each button
     buttons.forEach(button => {
