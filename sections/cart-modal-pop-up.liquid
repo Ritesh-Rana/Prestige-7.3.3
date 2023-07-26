@@ -146,7 +146,15 @@
 {% endstylesheet %}
 
 <script>
-  function addtocartajax(){
-    console.log(this);
+  // Get all elements with the class 'custom-ajax-cart-pop-up'
+    const buttons = document.querySelectorAll(".custom-ajax-cart-pop-up");
+
+  // Attach the click event listener to each button
+    buttons.forEach(button => {
+      button.addEventListener("click", addtocartajax);
+    });
+
+  function addtocartajax(button){
+    console.log(button.target);
   }
   </script>
