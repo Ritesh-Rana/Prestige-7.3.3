@@ -168,13 +168,11 @@ Supported variables
     {%- endif -%}
        
     {% if product.variants.size <= 1 %}
-      <form method="post" action='/cart/add' class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn custom-ajax-cart-pop-up">
-        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
         <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
             <button type="submit" id="addToCartButton-{{ product.selected_or_first_available_variant.id }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn custom-ajax-cart-pop-up" style="border: #000 1px solid;">
               <span>ADD TO BAG</span>
             </button>
-      </form>
+      
     {% else %}
       <a href="{{ product.url }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn">
         <button class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn" style="border: #000 1px solid;">
