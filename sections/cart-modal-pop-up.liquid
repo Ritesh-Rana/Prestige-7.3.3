@@ -171,16 +171,16 @@
   })
     .then(response => response.json())
     .then(data => {
-       // Assuming the response data is an object with properties 'imgSrc', 'name', 'qty', and 'price'
-      const imgElement = document.querySelector(".p-img");
-      const nameElement = document.querySelector(".p-name");
-      const qtyElement = document.querySelector("#added-qty");
-      const priceElement = document.querySelector("#added-price");
-
-      imgElement.src = data.imgSrc; // Update the image source
-      nameElement.textContent = data.name; // Update the product name
-      qtyElement.textContent = data.qty; // Update the quantity
-      priceElement.textContent = data.price; // Update the price
+      // Handle the response from the API as needed
+          const imgElement = document.querySelector(".p-img");
+          const nameElement = document.querySelector(".p-name");
+          const qtyElement = document.querySelector("#added-qty");
+          const priceElement = document.querySelector("#added-price");
+    
+          imgElement.src = data.imgSrc; // Update the image source
+          nameElement.textContent = data.name; // Update the product name
+          qtyElement.textContent = data.qty; // Update the quantity
+          priceElement.textContent = data.price; // Update the price
 
       // Show the modal
       const modal = document.getElementById("add-to-cart");
