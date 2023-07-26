@@ -150,7 +150,7 @@
     const buttons = document.querySelectorAll(".custom-ajax-cart-pop-up");
 
   // close pop-up event
-    const close = document.getElementsByClassName("add-to-cart-close");
+    const close = document.querySelectorAll(".add-to-cart-close");
    close.forEach(close => {
       close.addEventListner("click",closePopUp);
     });
