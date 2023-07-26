@@ -171,7 +171,7 @@ Supported variables
             <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" />
             <button id="addToCartButton-{{ product.selected_or_first_available_variant.id }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn custom-ajax-cart-pop-up" style="border: #000 1px solid;"
                 variant-id="{{ product.selected_or_first_available_variant.id }}" >
-              <span variant-id="{{ product.selected_or_first_available_variant.id }}>ADD TO BAG</span>
+              <span variant-id="{{ product.selected_or_first_available_variant.id }}">ADD TO BAG</span>
             </button>
     {% else %}
       <a href="{{ product.url }}" class="Button Button--full custom-ajax product_add_to_bag_rta_desktop btn">
