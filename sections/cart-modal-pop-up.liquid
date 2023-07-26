@@ -50,6 +50,98 @@
   /*background-color: rgb(0,0,0); /* Fallback color */
   /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
+ * Float container */
+.template-cart #p-float {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Clearfix */
+  overflow: auto;
+}
+.template-cart #p-float::after {
+  /* Clearfix */
+  content: "";
+  clear: both;
+  display: table;
+}
+/* Product items */
+.template-cart div.p-float {
+  float: left;
+  width: 50%;
+}
+.template-cart div.p-float-in {
+  box-sizing: border-box;
+  margin: 5px; 
+  padding: 10px;
+  border: 1px solid #f2dcdc;
+  background: #fff;
+}
+
+.template-cart img.p-img {
+    /*width: 50%;*/
+    height: 200px;
+    margin: 0 auto;
+    display: block;
+}
+
+.template-cart div.p-name {
+  font-weight: bold;
+  /*font-size: 1.1em;*/
+  text-align:center;
+}
+.template-cart div.p-price {
+  color: #f44242;
+}
+.template-cart div.p-desc {
+  color: #888;
+  font-size: 0.9em;
+  text-align:center;
+}
+.template-cart button.p-add {
+  background: #fff;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 5px 5px 5px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* Responsive */
+@media only screen and (max-width: 1024px) {
+  .template-cart div.p-float { width: 50%; }
+  .back-to-sale {float:none !important; position:relative !important;left:0 !important; padding: 10px; margin-bottom: 5px; font-size: 10px;}
+}
+
+@media only screen and (max-width: 600px) {
+  div.p-float { width: 100% !important; }
+  .template-cart .modal-content {width: 100% !important; }
+}
+
+/* The Modal (background) */
+.template-cart {
+  display: none; /* Hidden by default */
+  /* position: fixed;  Stay in place */
+  z-index: 999; /* Sit on top */
+  /*padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 30%;
+  position:absolute;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto; /* Enable scroll if needed */
+  /*background-color: rgb(0,0,0); /* Fallback color */
+}
+
+/* Modal Content */
+.template-cart .modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  text-align:center;
+}
+
 {% endstylesheet %}
 
 {% javascript %}
