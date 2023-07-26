@@ -150,10 +150,8 @@
     const buttons = document.querySelectorAll(".custom-ajax-cart-pop-up");
 
   // close pop-up event
-   //  const close = document.querySelectorAll(".add-to-cart-close");
-   // close.forEach(close => {
-   //    close.addEventListner("click",closePopUp);
-   //  });
+    const close = document.querySelectorAll(".add-to-cart-close");
+      close[0].addEventListener("click",closePopUp);
 
   
   // Attach the click event listener to each button
