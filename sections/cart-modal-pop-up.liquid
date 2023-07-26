@@ -183,8 +183,10 @@
           priceElement.textContent = data.price; // Update the price
 
       // Show the modal
+      const modal = document.getElementsByClassName("template-cart");
       const modal = document.getElementById("add-to-cart");
       modal.style.display = "block";
+      modal[0].style.display = "block";
       console.log("API response:", data);
     })
     .catch(error => {
