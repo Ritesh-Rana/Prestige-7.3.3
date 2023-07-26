@@ -1,11 +1,55 @@
+<div class="template-cart ajax-popup">
+      <div id="add-to-cart" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="add-to-cart-close close">&times;</span>
+          <strong class="title">Added To Bag</strong>
+          <div id="p-float" class="free-gifts">
+            <div class="p-float">
+              <div class="p-float-in">
+                <img class="p-img" src=""/>
+                <div class="Alert--error"></div>
+              </div>
+            </div>
+            <div class="p-float p-float-buttons">
+              <div class="product_data">
+                <div class="p-name"></div>
+                <div class="product_qty_price">
+                  QTY. <span id="added-qty"> X </span> @ <span id="added-price">$PRICE</span> AUD
+                </div>
+              </div>
+              <div class="p-float-in">
+                <a class="continue_shopping continue ProductForm__AddToCart Button Button--primary Button--full" href="javascript:void(0)" onclick="jQuery('.add-to-cart-close').trigger('click');">Continue Shopping</a>
+                <a href="/cart" class="view_cart ProductForm__AddToCart Button Button--primary Button--full">View Bag</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 {% schema %}
   {
-    "name": "Section name",
+    "name": "Add to Cart Pop-Up",
     "settings": []
   }
 {% endschema %}
 
 {% stylesheet %}
+  .template-cart .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  /* padding-top: 100px;  Location of the box */
+  left: 0;
+  top: 15%;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto; /* Enable scroll if needed */
+  /*background-color: rgb(0,0,0); /* Fallback color */
+  /*background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
 {% endstylesheet %}
 
 {% javascript %}
