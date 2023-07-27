@@ -159,46 +159,48 @@
       button.addEventListener("click", addtocartajax);
     });
 
-  function addtocartajax(button){
+function addtocartajax(button){
+      
     const Current_Button = button.target;
-  const variantId = Current_Button.getAttribute("variant-id");
+    Current_Button.textContent = "ADDING..."
+    const variantId = Current_Button.getAttribute("variant-id");
   
-  // Here, 'variantId' will contain the value of the 'variant-id' attribute from the clicked button.
-  // You can now use 'variantId' in your AJAX request to the "Add to Cart" API.
-
-  // Example AJAX request using Fetch API:
-  fetch("/cart/add.js", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ id:variantId,qty:1 }),
-  })
-    .then(response => response.json())
-    .then(data => {
-      // Handle the response from the API as needed
-          const imgElement = document.querySelector(".p-img");
-          const nameElement = document.querySelector(".p-name");
-          const qtyElement = document.querySelector("#added-qty");
-          const priceElement = document.querySelector("#added-price");
+    // Here, 'variantId' will contain the value of the 'variant-id' attribute from the clicked button.
+    // You can now use 'variantId' in your AJAX request to the "Add to Cart" API.
+  
+    // Example AJAX request using Fetch API:
+      fetch("/cart/add.js", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id:variantId,qty:1 }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response from the API as needed
+              const imgElement = document.querySelector(".p-img");
+              const nameElement = document.querySelector(".p-name");
+              const qtyElement = document.querySelector("#added-qty");
+              const priceElement = document.querySelector("#added-price");
+        
+              imgElement.src = data.imgSrc; // Update the image source
+              nameElement.textContent = data.name; // Update the product name
+              qtyElement.textContent = data.qty; // Update the quantity
+              priceElement.textContent = data.price; // Update the price
     
-          imgElement.src = data.imgSrc; // Update the image source
-          nameElement.textContent = data.name; // Update the product name
-          qtyElement.textContent = data.qty; // Update the quantity
-          priceElement.textContent = data.price; // Update the price
-
-      // Show the modal
-      const modal1 = document.getElementsByClassName("template-cart");
-      const modal = document.getElementById("add-to-cart");
-      modal.style.display = "block";
-      modal1[0].style.display = "block";
-      console.log("API response:", data);
-    })
-    .catch(error => {
-      console.error("Error occurred:", error);
-    });
-
-  }
+          // Show the modal
+          const modal1 = document.getElementsByClassName("template-cart");
+          const modal = document.getElementById("add-to-cart");
+          modal.style.display = "block";
+          modal1[0].style.display = "block";
+          console.log("API response:", data);
+        })
+        .catch(error => {
+          console.error("Error occurred:", error);
+        });
+}
+  
   function closePopUp(){
       const modal1 = document.getElementsByClassName("template-cart");
       const modal = document.getElementById("add-to-cart");
