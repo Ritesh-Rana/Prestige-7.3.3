@@ -176,6 +176,7 @@ function addtocartajax(button){
         },
         body: JSON.stringify({ id:variantId,qty:1 }),
       })
+        .then(response => response.json())
         .then(data => {
           Current_Button.textContent = "ADD TO BAG";
           // Handle the response from the API as needed
