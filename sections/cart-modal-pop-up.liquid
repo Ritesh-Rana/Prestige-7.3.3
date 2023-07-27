@@ -162,7 +162,7 @@
 function addtocartajax(button){
       
     const Current_Button = button.target;
-    Current_Button.textContent = "ADDING..."
+    Current_Button.textContent = "ADDING...";
     const variantId = Current_Button.getAttribute("variant-id");
   
     // Here, 'variantId' will contain the value of the 'variant-id' attribute from the clicked button.
@@ -178,6 +178,7 @@ function addtocartajax(button){
       })
         .then(response => response.json())
         .then(data => {
+          Current_Button.textContent = "ADD TO BAG";
           // Handle the response from the API as needed
               const imgElement = document.querySelector(".p-img");
               const nameElement = document.querySelector(".p-name");
@@ -197,6 +198,7 @@ function addtocartajax(button){
           console.log("API response:", data);
         })
         .catch(error => {
+          Current_Button.textContent = "ADD TO BAG";
           console.error("Error occurred:", error);
         });
 }
