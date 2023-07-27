@@ -185,9 +185,9 @@ function addtocartajax(button){
               const qtyElement = document.querySelector("#added-qty");
               const priceElement = document.querySelector("#added-price");
         
-              imgElement.src = data.imgSrc; // Update the image source
-              nameElement.textContent = data.name; // Update the product name
-              qtyElement.textContent = data.qty; // Update the quantity
+              imgElement.src = data.image; // Update the image source
+              nameElement.textContent = data.product_title; // Update the product name
+              qtyElement.textContent = 1 // Update the quantity
               priceElement.textContent = data.price; // Update the price
     
           // Show the modal
