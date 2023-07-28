@@ -201,16 +201,103 @@
     clear: both; 
     display: table;
 }
-  
-  @media only screen and (max-width: 767px){
-.template-cart.ajax-popup .modal {
+ /* Media Queries for Widths between 426px and 767px */
+@media only screen and (max-width: 767px) {
+  .template-cart.ajax-popup .modal {
     top: 10%;
-}
   }
-  @media only screen and (min-width: 769px) and (max-width: 991px){
-.ajax-popup .modal {
+  .ajax-popup .modal-content {
+    max-height: 320px;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .template-cart.ajax-popup .free-gifts {
+    margin-bottom: 0!important;
+  }
+  .ajax-popup .free-gifts .p-float,
+  .ajax-popup .free-gifts .p-float-buttons .product_data {
+    width: 100%;
+  }
+  .ajax-popup .p-img {
+    height: 185px!important;
+    width: auto;
+  }
+  .template-cart.ajax-popup .free-gifts .p-float-buttons {
+    padding-top: 2px;
+    width: 100%;
+  }
+  .template-cart.ajax-popup .product_data {
+    font-size: 14px;
+  }
+  .template-cart.ajax-popup .product_data .p-name {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .ajax-popup div.p-name {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .ajax-popup .free-gifts .p-float-buttons .p-float-in {
+    padding-left: 0;
+  }
+}
+
+/* Media Queries for Widths between 768px and 991px */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .ajax-popup .modal {
     top: 5%;
-}}
+  }
+  .ajax-popup .product_data .p-name {
+    line-height: 26px;
+  }
+  .template-cart div.p-float,
+  .template-cart .modal-content {
+    width: 50%;
+  }
+  .ajax-popup .free-gifts .p-float-buttons .product_data {
+    margin: 0 auto;
+  }
+}
+
+/* Media Queries for Widths between 550px and 600px */
+@media only screen and (min-width: 550px) and (max-width: 600px) {
+  .ajax-popup .modal-content {
+    max-height: 275px;
+  }
+  div.p-float,
+  .template-cart .modal-content {
+    width: 100%!important;
+  }
+  .ajax-popup div.p-float-in a {
+    width: 100%!important;
+    margin: 20px auto 0!important;
+  }
+}
+
+/* Media Queries for Widths up to 1024px */
+@media only screen and (max-width: 1024px) {
+  .ajax-popup .p-img {
+    height: auto!important;
+    width: auto!important;
+  }
+  .template-cart div.p-float {
+    width: 50%;
+  }
+  .ajax-popup .free-gifts .p-float-buttons .p-float-in {
+    margin: 5px auto;
+    width: 100%;
+    padding-left: 15px;
+  }
+}
+
+/* Media Queries for Widths between 426px and 640px */
+@media only screen and (min-width: 426px) and (max-width: 640px) {
+  .ajax-popup .ProductForm__AddToCart.Button.Button--primary.Button--full {
+    padding: 4px;
+    font-size: 11px;
+  }
+}
+
 </style>
 <script>
   
