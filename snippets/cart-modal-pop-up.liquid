@@ -309,16 +309,22 @@ div.p-float, .template-cart .modal-content {
     padding: 4px;
     font-size: 11px;
 }}
-  @media only screen and (max-width: 1024px){
+@media only screen and (max-width: 1024px){
 .ajax-popup div.p-float-in a {
-    width: 140%!important;
+    width: 100%!important;
     margin: 20px auto 0!important;
-    height: 30px;
 }}
-  @media only screen and (min-width: 768px) and (max-width: 1024px){
+  
+@media only screen and (min-width: 768px) and (max-width: 1024px){
 .template-cart.ajax-popup .free-gifts .p-float-buttons {
     padding-top: 10px;
-}}
+}
+  .ajax-popup div.p-float-in a {
+    width: 140%!important;
+    margin: 15px auto 0!important;
+    height: 30px;
+  }
+}
 </style>
 <script>
   
