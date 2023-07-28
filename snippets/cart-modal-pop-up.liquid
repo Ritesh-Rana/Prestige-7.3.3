@@ -256,7 +256,7 @@ function addtocartajax(button){
               imgElement.src = data.image; // Update the image source
               nameElement.textContent = data.product_title; // Update the product name
               qtyElement.textContent = 1 // Update the quantity
-              priceElement.textContent = data.price; // Update the price
+              priceElement.textContent = data.price/100; // Update the price
     
           // Show the modal
           const modal1 = document.getElementsByClassName("template-cart");
