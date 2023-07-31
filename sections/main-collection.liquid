@@ -105,7 +105,13 @@ CSS
 LIQUID
 ------------------------------------------------------------------------------------------------------------------------
 {%- endcomment -%}
-
+{%- if collection.metafields.global.desktop_image != blank -%}
+	<img src="{{ collection.metafields.global.desktop_image }}" class="show-on-desktop" style="width:100%;"/>
+{%- endif -%}
+{%- if collection.metafields.global.mobile_image  != blank -%}
+	<img src="{{ collection.metafields.global.mobile_image }}" class="show-on-mobile" style="width:100%;"/>
+{%- endif -%}
+{% render 'breadcrumbs' %}
 <div class="container">
   <div class="v-stack gap-6 sm:gap-12">
     {%- if collection.all_products_count == 0 -%}
