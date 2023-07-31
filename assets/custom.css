@@ -2,6 +2,7 @@
 .hidden-tablet-and-up {
     display: none!important;
 }
+
 .breadcrumb {
     margin: 5px 0 0 8px;
     display:block !important;
