@@ -350,3 +350,6 @@ div.p-float, .template-cart .modal-content {
     width: 140%!important;
   }
 }
+.u-h1, .u-h2, .u-h4, .u-h5, .u-h6, .u-h7, .u-h8, .u-h9, body, .Rte h1, .Rte h2, .Rte h3, .Rte h4, .Rte h5, .Rte h6 {
+    font-family: gotham-book!important;
+}
