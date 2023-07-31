@@ -2279,7 +2279,7 @@ model-media model-viewer, model-media .shopify-model-viewer-ui {
   --product-list-calculated-column-gap: clamp(var(--container-gutter) / 4, var(--product-list-default-column-gap) * var(--product-list-horizontal-spacing-factor, 1), var(--container-gutter) * 2);
   --product-list-card-width: calc(100% / var(--product-list-calculated-items-per-row)  - var(--product-list-calculated-column-gap, 0px) * (var(--product-list-calculated-items-per-row)  - 1) / var(--product-list-calculated-items-per-row));
   grid: auto / repeat(auto-fit, var(--product-list-card-width));
-  align-items: start;
+  align-items: self-end;
   column-gap: var(--product-list-calculated-column-gap);
   row-gap: var(--product-list-calculated-row-gap);
   display: grid;
