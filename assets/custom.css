@@ -46,6 +46,10 @@
 .show-on-mobile {
     display: none;
 }}
+@media (min-width: 320px) and (max-width: 1024px){
+.show-on-desktop {
+    display: none!important;
+}}
 /* css for add to cart ajax pop-up */
  .template-cart .modal {
     display: none;
