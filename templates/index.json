@@ -168,7 +168,7 @@
         "template--15958646620300__75552079-7fac-4530-b02b-cf6c6cbd15ae-1684411248bb56ed57-0"
       ],
       "custom_css": [
-
+        ".custom-ajax {display: none;}"
       ],
       "settings": {
         "separate_section_with_border": true,
@@ -266,6 +266,9 @@
       },
       "block_order": [
         "template--16128363659436__656f2d2c-2a66-42ca-9357-a0696f02910d-16880446424dd50983-0"
+      ],
+      "custom_css": [
+
       ],
       "settings": {
         "separate_section_with_border": true,
