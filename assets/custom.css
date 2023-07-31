@@ -8,22 +8,35 @@
     display: block !important;
 }
 
-@media only screen and (min-width: 1024px)
+@media only screen and (min-width: 1024px){
 .breadcrumb {
     margin: 20px 0 20px 20px!important;
 }
+}
 
 /* css for page header title */
-@media screen and (min-width: 641px)
+@media screen and (min-width: 641px){
 .PageHeader {
     margin: 50px 0;
-}
+}}
 .PageHeader {
     position: relative;
     margin: 35px 0;
 }
 .SectionHeader--center {
     text-align: center;
+}
+@media screen and (min-width: 1240px){
+.Container {
+    padding: 0 80px;
+}}
+@media screen and (min-width: 641px){
+.Container {
+    padding: 0 50px;
+}}
+.Container {
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 /* css for add to cart ajax pop-up */
