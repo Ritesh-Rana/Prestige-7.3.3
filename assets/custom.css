@@ -38,6 +38,7 @@
     margin: 0 auto;
     padding: 0 24px;
 }
+
 @media (min-width: 1025px){
 .show-on-mobile {
     display: none;
