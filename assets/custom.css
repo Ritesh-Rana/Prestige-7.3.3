@@ -38,7 +38,17 @@
     margin: 0 auto;
     padding: 0 24px;
 }
-
+.SectionHeader__Heading.SectionHeader__Heading, .SectionHeader__SubHeading.SectionHeader__SubHeading {
+    margin-top: -0.325em;
+    text-transform:uppercase;
+}
+@media screen and (max-width: 640px){
+.PageHeader .SectionHeader__Heading {
+    margin-bottom: 10px;
+}}
+.PageHeader .SectionHeader__Heading, .PageHeader .SectionHeader__Description {
+    margin-top: 0!important;
+}
 @media (min-width: 1025px){
 .show-on-mobile {
     display: none;
