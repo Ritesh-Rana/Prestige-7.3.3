@@ -2,3 +2,10 @@
 .hidden-tablet-and-up {
     display: none!important;
 }
+.breadcrumb {
+    margin: 5px 0 0 8px;
+}
+@media only screen and (min-width: 1024px)
+.breadcrumb {
+    margin: 20px 0 20px 20px!important;
+}
