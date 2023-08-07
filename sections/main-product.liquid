@@ -33,7 +33,11 @@
       {%- endif -%}
     }
   }
+  .option1{
+    display:none;
+  }
 </style>
+{% render 'breadcrumbs' %}
 
 <div class="section-spacing section-spacing--tight">
   <div class="container {% unless section.settings.container_size == 'full' %}container--{{ section.settings.container_size }}{% endunless %}">
@@ -64,10 +68,10 @@
                 {%- if product.description != blank -%}
                   {%- if block.settings.collapse_content -%}
                     {%- assign accordion_title = 'product.general.description' | t -%}
-                    {%- render 'accordion', title: accordion_title, content: product.description, prose_content: true, size: 'lg', block: block -%}
+                    {%- render 'accordion', title: accordion_title, content: product.metafields.global.prismic_description, prose_content: true, size: 'lg', block: block -%}
                   {%- else -%}
                     <div class="product-content-below-gallery__description prose">
-                      {{- product.description -}}
+                      {{- product.metafields.global.prismic_description -}}
                     </div>
                   {%- endif -%}
                 {%- endif -%}
@@ -77,8 +81,16 @@
                   assign accordion_title = block.settings.title | default: block.settings.page.title
                   assign accordion_content = block.settings.page.content | default: block.settings.content
 
-                  if accordion_title != blank and accordion_content != blank
-                    render 'accordion', title: accordion_title, content: accordion_content, size: 'lg', prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block
+                  if accordion_title != blank
+                     if accordion_title == 'HOW TO USE'
+                      render 'accordion', title: accordion_title, content: product.metafields.global.prismic_how_to_use, size: 'lg', prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block
+                     endif
+                    if accordion_title == 'PRO TIPS'
+                      render 'accordion', title: accordion_title, content: product.metafields.global.prismic_pro_tips, size: 'lg', prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block
+                     endif
+                    if accordion_title == 'INGREDIENTS'
+                      render 'accordion', title: accordion_title, content: product.metafields.global.prismic_ingredients, size: 'lg', prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block
+                     endif
                   endif
                 -%}
 
@@ -308,6 +320,30 @@ quick buy information in a template, that will be extracted in JS, which ensures
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "name":"Descriptionbelowaddtocart",
+      "type":"descriptionbelowaddtocart",
+      "settings":[
+        {
+          "type": "checkbox",
+          "id": "description_below_add_to_cart",
+          "label": "Description below add to cart",
+          "default": true
+      }
+      ]
+    },
+    {
+      "name":"start ratings",
+      "type":"start_ratings",
+      "settings":[
+        {
+          "type": "checkbox",
+          "id": "start_ratings",
+          "label": "Start ratings and Reviews count",
+          "default": true
+      }
+      ]
     },
     {
       "type": "vendor",

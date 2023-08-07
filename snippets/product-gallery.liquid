@@ -37,7 +37,7 @@ Supported variables
         --product-gallery-thumbnail-list-grid-auto-flow: row;
 
         {%- if desktop_layout == 'carousel_thumbnails_left' -%}
-          --product-gallery-thumbnail-list-max-height: 45rem;
+          --product-gallery-thumbnail-list-max-height: 370px;
         {%- endif -%}
       {%- endif -%}
 
@@ -58,6 +58,12 @@ Supported variables
       }
     {%- endif -%}
   }
+  @media screen and (min-width: 1000px){
+  .product-content-below-gallery {
+    width: 80%;
+    margin: auto;
+  }
+}
 </style>
 
 {%- comment -%}
@@ -219,10 +225,11 @@ only way to do it on Shopify right now.
 
     {%- if show_thumbnails_mobile or show_thumbnails_desktop -%}
       <safe-sticky class="product-gallery__thumbnail-list {% unless show_thumbnails_mobile %}hidden{% endunless %} {% unless show_thumbnails_desktop %}md:hidden{% else %}md:block{% endunless %}">
+        <div id="show__more__thumbs_top" class="show__more__thumbs "></div>
         <product-gallery-navigation align-selected aria-controls="{{ product_gallery_carousel_id }}" class="product-gallery__thumbnail-scroller bleed md:unbleed">
           {%- if product != blank -%}
             {%- for media in product.media -%}
-              <button type="button" class="product-gallery__thumbnail" {% if filtered_indexes contains media.position %}hidden{% endif %} data-media-type="{{ media.media_type }}" data-media-position="{{ media.position }}" data-media-id="{{ media.id }}" aria-current="{% if media == default_media %}true{% else %}false{% endif %}" aria-label="{{ 'general.accessibility.go_to_item' | t: index: forloop.index | escape }}">
+              <button type="button" class="product-gallery__thumbnail test" {% if filtered_indexes contains media.position %}hidden{% endif %} data-media-type="{{ media.media_type }}" data-media-position="{{ media.position }}" data-media-id="{{ media.id }}" aria-current="{% if media == default_media %}true{% else %}false{% endif %}" aria-label="{{ 'general.accessibility.go_to_item' | t: index: forloop.index | escape }}">
                 {{- media | image_url: width: media.preview_image.width | image_tag: loading: 'lazy', sizes: '56px', widths: '56,112,168', class: 'object-contain' -}}
 
                 {%- unless media.media_type == 'image' -%}
@@ -246,9 +253,67 @@ only way to do it on Shopify right now.
             {%- endfor -%}
           {%- endif -%}
         </product-gallery-navigation>
+        <div id="show__more__thumbs_bottom" class="show__more__thumbs"></div>
       </safe-sticky>
     {%- endif -%}
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+      var showMoreThumbsBottom = document.getElementById('show__more__thumbs_bottom');
+      var showMoreThumbsTop = document.getElementById('show__more__thumbs_top');
+      var thumbnailScroller = document.querySelector('.product-gallery__thumbnail-scroller');
+      var scrollInterval;
 
+      function smoothScroll(distance) {
+        var start = thumbnailScroller.scrollTop;
+        var currentTime = 0;
+        var duration = 500; // Duration of the smooth scroll animation in milliseconds
+
+        function scrollStep(timestamp) {
+          if (!currentTime) currentTime = timestamp;
+          var progress = timestamp - currentTime;
+          thumbnailScroller.scrollTop = easeInOutCubic(progress, start, distance, duration);
+
+          if (progress < duration) {
+            requestAnimationFrame(scrollStep);
+          }
+        }
+
+        function easeInOutCubic(t, b, c, d) {
+          t /= d / 2;
+          if (t < 1) return c / 2 * t * t * t + b;
+          t -= 2;
+          return c / 2 * (t * t * t + 2) + b;
+        }
+
+        requestAnimationFrame(scrollStep);
+      }
+
+      function scrollDown() {
+        smoothScroll(200);
+      }
+
+      function scrollUp() {
+        smoothScroll(-200);
+      }
+
+      showMoreThumbsBottom.addEventListener('mousedown', function() {
+        scrollInterval = setInterval(scrollDown, 100);
+      });
+
+      showMoreThumbsTop.addEventListener('mousedown', function() {
+        scrollInterval = setInterval(scrollUp, 100);
+      });
+
+      showMoreThumbsBottom.addEventListener('mouseup', function() {
+        clearInterval(scrollInterval);
+      });
+
+      showMoreThumbsTop.addEventListener('mouseup', function() {
+        clearInterval(scrollInterval);
+      });
+    });
+
+</script>
     {%- if mobile_controls == 'dots' or desktop_layout == 'carousel_dots' -%}
       <carousel-navigation class="page-dots align-self-center {% unless mobile_controls == 'dots' %}md-max:hidden{% endunless %} {% unless desktop_layout == 'carousel_dots' %}md:hidden{% endunless %}" aria-controls="{{ product_gallery_carousel_id }}">
         {%- if product != blank -%}

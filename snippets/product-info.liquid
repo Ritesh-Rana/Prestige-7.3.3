@@ -138,6 +138,7 @@ Supported variables
                 <a href="{{ product.url }}">{{ product_title }}</a>
               </h2>
             {%- endif -%}
+        	<p style="font-size:14px;" class="hidden-tablet hidden-phone">({{ product.metafields.title.size }})</p>
 
           {%- when 'sku' -%}
             <variant-sku class="variant-sku text-sm text-subdued" form="{{ product_form_id }}" {% if product != blank and product.selected_or_first_available_variant.sku == blank %}hidden{% endif %}>
@@ -167,7 +168,24 @@ Supported variables
                 </p>
               {%- endif -%}
             </div>
-
+          {% when 'start_ratings' %}
+              <a href="#shopify-section-product-review"><div class="ruk_rating_snippet" data-sku="{{ product.handle }};{{ product.variants | map: 'sku' | join: ';' }};{{ product.variants | map: 'id' | join: ';' }}"></div></a>
+              <script src="https://widget.reviews.io/rating-snippet/dist.js"></script>
+              <script>
+              ratingSnippet("ruk_rating_snippet",{
+              store: "napoleon-perdis",
+              color: "#d4c58f",
+              linebreak: true,
+              text: "Reviews"
+              });
+              </script>
+          {% when 'descriptionbelowaddtocart' %}
+                        <div class="ProductMeta__Description">
+                                        <div class="Rte">
+                                                          {{ product.description | replace: 'data-section-type', 'data-section-type-placeholder' }}
+                                        </div>
+                        </div>
+               
           {%- when 'payment_terms' -%}
             {%- if product != blank -%}
               <payment-terms class="payment-terms" form="{{ product_form_id }}">

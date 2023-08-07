@@ -1,0 +1,325 @@
+<div class="Container">
+  <header class="PageHeader">
+    <div class="SectionHeader SectionHeader--center">
+      <h1 class="SectionHeader__Heading Heading u-h1">{{ page.title }}</h1>
+    </div>
+  </header>
+
+  <div class="PageContent Rte">
+    {% assign offerCount = 0 %}
+    {%- if section.blocks.size >= 1 -%}
+    {%- for block in section.blocks -%}
+    {%- if block.settings.hide_offer == false -%}
+    {% assign offerCount = offerCount | plus: 1 %}
+    <div class="clear row-section flex-container layout">
+      <div class="prime align-self-center full_section">
+        <div class="prime-html ">
+          <div class="offers_push offers_push_major">
+            <div class="offers_push_img">
+              <a href="{{ block.settings.offer_url }}">
+                {% comment %}
+                {%- include 'image-size', sizes: '540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048', image: block.settings.offer_image -%}
+                <div class="AspectRatio" style="max-width: {{ block.settings.offer_image.width }}px; --aspect-ratio: {{ block.settings.offer_image.aspect_ratio }}">
+                  {% endcomment %}
+                  {% assign image_url = block.settings.offer_image | img_url: '1x1' | replace: '_1x1.', '_530x.' %}
+
+                  <img class="Image--lazyLoad Image--fadeIn" loading="eager" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" alt="{{ block.settings.offer_image.alt | escape }}">
+                  {% comment %}
+                  <span class="Image__Loader"></span>
+
+                  <noscript>
+                    <img src="{{ block.settings.offer_image | img_url: '600x' }}" alt="{{ block.settings.offer_image.alt | escape }}">
+                  </noscript>
+                </div>
+                {% endcomment %}
+              </a>
+            </div>
+            <div class="offers_push_text">
+              <div class="offers_push_text_titles">
+                <h2 style="margin-bottom:10px;">{{ block.settings.offer_title }}</h2>
+              </div>
+              <p>
+                {{- block.settings.offer_text  -}}
+              </p>
+              {%- if block.settings.offer_terms_text != blank %}
+              	<p class="offer-terms"><i>{{- block.settings.offer_terms_text  -}}</i></p>
+              {%- endif -%}
+              {%- if forloop.first == true -%}
+                {%- form 'customer', action:'/contact',id: newsletter_id, class: 'Newsletter Form' -%}
+                  {%- if form.posted_successfully? -%}
+                    <p class="Form__Alert Alert Alert--success">{{ 'home_page.newsletter.success' | t }}</p>
+                  {%- else -%}
+                    {%- if form.errors -%}
+                      <p class="Form__Alert Alert Alert--error">{{ form.errors.messages['email'] }}</p>
+                    {%- endif -%}
+
+                    <div class="Newsletter__Inner">
+                      <input type="hidden" name="contact[tags]" value="newsletter">
+                      <input type="email" name="contact[email]" class="Form__Input" aria-label="{{ 'home_page.newsletter.input' | t }}" placeholder="{{ 'home_page.newsletter.input' | t }}" required>
+                      <button type="submit" class="Form__Submit Button Button--primary">{{ 'general.newsletter.subscribe' | t }}</button>
+                    </div>
+                  {%- endif -%}
+                {%- endform -%}
+              {%- elsif block.settings.offer_button_url != blank  -%}
+              	<a class="Button Button--primary" href="{{- block.settings.offer_button_url -}}">{{- block.settings.offer_button_text -}}</a>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {%- if offerCount == 0 -%}
+    <h5 class="Text--alignCenter"> {{- section.settings.zero_offers_text -}} </h5>
+    {%- endif -%}
+    {% endif %}
+  </div>
+</div>
+<style>
+  .prime {
+	max-width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 64em) {
+	.align-self-center {
+		align-self: center;
+	}
+}
+
+.offers_push.offers_push_major {
+	position: relative;
+	margin: 25px 0 20px;
+}
+
+.offers_push {
+	border: 1px solid #dadada;
+	margin: 0 0 20px;
+	display: table;
+	width: 100%;
+	box-sizing: border-box;
+	vertical-align: middle;
+}
+
+.offers_push_img {
+	padding-left: 24px;
+	box-sizing: border-box;
+	min-width: 260px;
+}
+
+.offers_push_text,
+.offers_push_img {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.offers_push img {
+	max-width: inherit;
+}
+
+.offers_push_major .offers_push_text {
+	position: relative;
+}
+
+.offers_push_text {
+	padding: 10px 20px 10px 2%;
+	box-sizing: border-box;
+	width: 100%;
+}
+  .offers_push_text .offer-terms {
+    line-height:14px;
+  }
+  .offers_push_text .offer-terms i {
+    font-size:11px;
+  }
+  .offers_push_img a {
+    padding: 4px;
+    display: block;
+  }
+
+.offers_push_major .offers_push_text p,
+.offers_push_major .offers_push_text a,
+.offers_push_major .offers_push_text_titles {
+	position: relative;
+	z-index: 2;
+}
+.offers_push_text_titles h2 {
+  margin-top:5px;
+}
+.PageContent {
+    max-width: 1500px;
+}
+.offers_push_text .btn_cta_primary {
+	margin: 12px 0 0;
+}
+
+.btn_cta_primary {
+	display: inline-block;
+	padding: 15px 35px;
+	height: auto;
+	line-height: 1;
+	background: #000;
+	color: #fff;
+	font-size: 11px;
+	font-family: Gotham Book, Helvetica, Roboto, Arial, sans-serif;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	border: 0;
+	cursor: pointer;
+}
+
+.layout {
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+@media screen and (min-width: 64em) {
+	.flex-container,
+	.flex-row {
+		-moz-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+}
+
+@media screen and (min-width: 64em) {
+	.flex-container {
+		display: -ms-flexbox;
+		display: flex;
+	}
+}
+
+.clear {
+	clear: both;
+}
+
+@media only screen and (max-width: 1281px) {
+	.offers_push_img img {
+		max-width: 238px;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.offers_push_major .offers_push_img {
+		min-width: 0;
+		display: block;
+		padding: 0;
+		margin: 10px 0 25px 0;
+		position: relative;
+		z-index: 2;
+	}
+	.offers_push_img {
+		padding: 20px;
+		min-width: 0;
+	}
+	.offers_push_img img {
+		float: none;
+		max-width: 100%;
+	}
+	.offers_push_major .offers_push_text {
+		width: 100%;
+		display: block;
+		padding: 0 10px 20px 5px;
+		text-align: center;
+		position: static;
+	}
+	.offers_push_text {
+		width: 57%;
+		padding: 20px 10px 20px 0;
+	}
+	.offers_push_text p {
+		line-height: 1.4em;
+	}
+	.offers_push_text p {
+		line-height: 1.4em;
+	}
+	.offers_push .btn_cta_primary {
+		padding: 15px 30px;
+	}
+}
+
+.prime.full_section {
+	width: 100%;
+}
+</style>
+{% schema %}
+{
+  "name": "Offers",
+  "class": "shopify-section--bordered",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "text",
+      "id": "zero_offers_text",
+      "label": "Text To Display When No Offers Are Present"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Add Offer",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "hide_offer",
+          "label": "Hide Offer"
+        },
+        {
+          "type": "image_picker",
+          "id": "offer_image",
+          "label": "Offer Image"
+        },
+        {
+          "type": "text",
+          "id": "offer_title",
+          "label": "Offer Title"
+        },
+        {
+          "type": "url",
+          "id": "offer_url",
+          "label": "Offer URL"
+        },
+        {
+          "type": "textarea",
+          "id": "offer_text",
+          "label": "Offer Text"
+        },
+        {
+          "type": "textarea",
+          "id": "offer_terms_text",
+          "label": "Offer Terms Text"
+        },
+        {
+          "type": "url",
+          "id": "offer_button_url",
+          "label": "Offer Button URL"
+        },
+        {
+          "type": "text",
+          "id": "offer_button_text",
+          "label": "Offer Button Text"
+        }
+		
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Custom Content",
+      "name": "Offers",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

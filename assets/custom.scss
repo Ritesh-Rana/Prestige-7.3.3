@@ -1135,104 +1135,7 @@ div.aasaved-carts {
 }
 .template-cart #shopify-section-sample-popup-collection .ProductItem__Title { margin-bottom:0px }
 
-{% if settings.sample_popup_ids != blank %}
-{{ settings.sample_popup_ids }} {
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    bottom: 0;
-    width: 90%;
-    height: max-content;
-    margin: 3% auto 0px;
-    display: block;
-    z-index: 999999;
-    background: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0px 15px 45px -14px rgba(0, 0, 0, 0.65);
-}
-@media only screen and (min-width: 768px){
-  {{ settings.sample_popup_ids }} {
-    top:0;
-    transform:inherit;
-  }
-}
-.section_sample_popup{
-    padding: 50px 0px 15px !important;
-    position: relative;
-}
-.sample_popup_close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    width: 30px;
-    font-size: 22px;
-    line-height: 30px;
-    background: #000;
-    color: #fff;
-    text-align: center;
-    cursor: pointer;
-    float: right;
-    margin: 0;
-    z-index: 9;
-}
-.section_sample_popup .SectionHeader {
-    margin-bottom: 13px !important;
-}
-.section_sample_popup .SectionHeader .Container{
-  padding:0 10px;
-}
-.section_sample_popup .SectionHeader .Container h2{
-    width: auto;
-    font-size: 18px;
-    margin: 5px auto;
-}
 
-@media only screen and (min-width: 768px){
-    .section_sample_popup {
-        padding: 20px 0px 45px !important;
-    }
-}
-@media only screen and (min-width: 802px) and (max-width: 898px){
-    {{ settings.sample_popup_ids }} {
-        margin: 2% auto 0px;
-        height: 330px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-}
-@media only screen and (min-width: 590px) and (max-width: 760px){
-    {{ settings.sample_popup_ids }} {
-        margin: 2% auto 0px;
-        height: 350px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-}
-@media only screen and (min-width: 899px) and (max-width: 1024px){
-    {{ settings.sample_popup_ids }} {
-        height: 600px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-}
-@media only screen and (min-width: 550px) and (max-width: 570px){
-    {{ settings.sample_popup_ids }} {
-        margin: 2% auto 0px;
-        height: 300px;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-    .section_sample_popup .ProductList--carousel .Carousel__Cell {
-        width: 45% !important;
-    }
-}
-
-{{ settings.sample_popup_ids }} {
-  visibility:hidden;
-}
-{% endif %}
 /*** shopify-section-sample-popup-collection css End ***/
 /** Home page featured product view product details styling **/
 .featured_button {
@@ -1254,75 +1157,7 @@ div.aasaved-carts {
     }
 /* MMM Button Styling End*/
 
-{% if settings.switch_pdp_layout_in_mobile == true %}
 
-
-@media screen and (max-width: 430px) {
-.Product__Wrapper p.afterpay-paragraph {
-	text-align:center;
-}
-.Product__Wrapper .Product__SlideshowNavScroller {
-	height: 350px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-} 
-}
-
-/* To Move Product Page Gallery Thumbnails To The Left Of The Main Image */
-@media screen and (min-width: 300px) {
-  .Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNav {
-    width:20%;
-    float:left;
-    top:62px !important;
-  }
-/*.Product__Wrapper p.afterpay-paragraph {
-	text-align:center;
-}
-.Product__Wrapper .Product__SlideshowNavScroller {
-	height: 350px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-} */
-  .Product__Slideshow {
-    width:80%;
-    float:right;
-  }
-  .Product__SlideshowNavPlay {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: #ffffff;
-    -webkit-filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-    filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));
-  }
-}
-
-@media only screen and (max-width:414px) {
-  span.Product__SlideshowNavImage.AspectRatio {
-    width: 56px;
-  }
-}
-@media only screen and (min-width:415px) {
-  span.Product__SlideshowNavImage.AspectRatio {
-    width: 60px;
-  }
-}
-span.Product__SlideshowNavImage.AspectRatio {
-  	display: inline-block;	
-    margin: 10px;
-    vertical-align: middle;
-}
-.Product__SlideshowNav {
-  display:block !important;
-}
-/*.flickity-page-dots {
-  display:none !important;
-}*/
-.Product__SlideshowNav {
-  text-align:center;
-}
-{% else %}
 /* To Move Product Page Gallery Thumbnails To The Left Of The Main Image */
 @media screen and (min-width: 1240px) {
   .Product__Gallery:not(.Product__Gallery--stack).Product__Gallery--withThumbnails .Product__SlideshowNav {
@@ -1342,7 +1177,7 @@ span.Product__SlideshowNavImage.AspectRatio {
     float:right;
   }
 }
-{% endif %}
+
 
 .oos {border: #bbbbbb thin solid;color: #bbbbbb;padding: 14px 11px;}
 .Image--contrast::after {
@@ -1394,56 +1229,7 @@ float: right;margin-left: 13px;margin-top: 3px;
 #promoaccess_link {
   color:#f00;
 }
-{% comment %}
-/* For home page tote text and image */
-.FeatureText--imageRight .FeatureText__ImageWrapper {
-    padding-top: 24px;
-    padding-right: 30px;
-    padding-bottom: 24px;
-    padding-left: 15px;
-}
-.FeatureText--imageLeft .FeatureText__ImageWrapper {
-	padding: 24px;
-}
-.FeatureText--imageLeft .FeatureText__ContentWrapper {
-  padding-top:25px;
-  margin-bottom:50px;
-}
 
-@media screen and (max-width: 450px) {
-  .FeatureText--imageLeft {
-    display:block !important;
-  }
-  .FeatureText--imageRight {
-    display:none;
-  }
-}
-.FeatureText--imageLeft {
-       display:none;
-}
-.shopify-section--bordered {
-  border:none;
-}
-@media screen and (min-width: 1240px) {
-.FeatureText--imageRight .FeatureText__ContentWrapper {
-    padding-right: 40px;
-  	padding-left:50px;
-}
-}
-@media screen and (min-width: 1440px) {
-.FeatureText--imageRight .FeatureText__ContentWrapper {
-    padding-right: 70px;
-  	padding-left:10px;
-}
-}
-.FeatureText--imageRight .FeatureText__ContentWrapper {
-    width: 25% !important;
-}
-.FeatureText--imageRight .FeatureText--withImage .FeatureText__ImageWrapper {
-    width: 75% !important;
-}
-
-{% endcomment %}
 div#shopify-section-1603775145a67e31df>section {
     margin:20px 0 40px 0;
 }
