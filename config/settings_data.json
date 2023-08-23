@@ -32,12 +32,6 @@
 
     ],
     "blocks": {
-      "vario_app_embed": {
-        "type": "shopify:\/\/apps\/vario\/blocks\/app-embed\/622e8656-34ee-4cb0-92c3-60ea95cfc0b8",
-        "disabled": false,
-        "settings": {
-        }
-      },
       "4571859552318407796": {
         "type": "shopify:\/\/apps\/glo-color-swatch-variant-image\/blocks\/app-embed-block\/4394f710-096c-4021-bbde-8ebb26057c11",
         "disabled": false,
@@ -47,6 +41,12 @@
       "12275743031121414305": {
         "type": "shopify:\/\/apps\/variaslide-image-gallery\/blocks\/app-embed\/e22d46a9-b20f-46ef-839e-96f4f8caeb06",
         "disabled": false,
+        "settings": {
+        }
+      },
+      "vario_app_embed": {
+        "type": "shopify:\/\/apps\/vario\/blocks\/app-embed\/622e8656-34ee-4cb0-92c3-60ea95cfc0b8",
+        "disabled": true,
         "settings": {
         }
       }
