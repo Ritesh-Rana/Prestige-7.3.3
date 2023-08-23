@@ -60,8 +60,9 @@
     {{- 'theme.css' | asset_url | stylesheet_tag: preload: true -}}
     <link rel="stylesheet" href="{{ 'custom.scss.css' | asset_url }}">
       
-  <!-- GSSTART Slider code start. Do not change -->{% if product.id > 1 %}
-<script type="text/javascript" src="https://gravity-software.com/js/shopify/slider_shop39001.js?v=1ffc87a4485d7c0591f6d0c9638ef74e"></script> 
+  
+<!-- GSSTART Slider code start. Do not change -->{% if product.id > 1 %}
+<script type="text/javascript" src="https://gravity-software.com/js/shopify/slider_shop39001.js?v=dce7f649c66adb6d9f1e053e95eb0e66"></script> 
  {% if product.variants.size > 1 %}<script>
 gsSliderDefaultV = "{{ product.selected_or_first_available_variant.id }}";
 var variantImagesByVarianName = {};
@@ -149,8 +150,7 @@ var productImagesGSUrls = [];
 
 </script>
 
-{% endif %}<!-- Slider code end. Do not change GSEND -->
-</head>
+{% endif %}<!-- Slider code end. Do not change GSEND --></head>
 
   {% liquid
     assign features_class = ''
