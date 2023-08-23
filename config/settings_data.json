@@ -46,7 +46,7 @@
       },
       "12275743031121414305": {
         "type": "shopify:\/\/apps\/variaslide-image-gallery\/blocks\/app-embed\/e22d46a9-b20f-46ef-839e-96f4f8caeb06",
-        "disabled": false,
+        "disabled": true,
         "settings": {
         }
       }
