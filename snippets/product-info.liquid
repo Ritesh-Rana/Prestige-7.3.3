@@ -112,8 +112,9 @@ Supported variables
       {%- capture block_content -%}
         {%- case block.type -%}
           {%- when '@app' -%}
+          <div class="vario-test">
             {%- render block -%}
-
+          </div>
           {%- when 'vendor' -%}
             {%- if product != blank -%}
               {%- render 'vendor' with product.vendor, class: 'h6 link-faded' -%}
