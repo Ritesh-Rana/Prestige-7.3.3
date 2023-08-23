@@ -1,0 +1,86 @@
+
+{% assign wk_trans = shop.metafields.wk_store_pickup.trans %}
+<div class="wk-main-store-locator-div">
+    <link rel="stylesheet" href="https://storelocator.webkul.com/css/store-locator-frondend.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+    {% include 'stores' %}
+    {% include 'features' %}
+    
+    <div class="page-width">
+        <h1 class="wk-page-heading">{{wk_trans.pickup_stores | default:'Pickup Stores' }}</h1>
+        <div class="search">
+            <form class="search-form" method="post">
+                  <div class="search-option-box">
+                      <div class="store-search-option search-all">
+                          <input type="radio" name="store-search" value="all" id="store-search-all" checked> {{wk_trans.all_stores | default:'All stores' }}
+                      </div>
+                      <div class="store-search-option search-custom">
+                          <input type="radio" name="store-search" value="custom" id="store-search-custom"> {{wk_trans.serach_by_location_and_distance | default:'Serach by location & distance' }}
+                      </div>
+                  </div>
+                  <div class="search-input-options" style="display:none">
+                <div class="current-location">
+                    <input type="text" name="name" id="store_location" placeholder="{{wk_trans.enter_location | default:'Enter location' }}" autocomplete="off">
+                    <img class="search-btn" title="{{wk_trans.get_current_location | default:'Get Current Location' }}" src="https://storelocator.webkul.com/images/icon-location-detection.svg">
+                    <br>
+                </div>
+                <div class="invalid-error invalid-address">{{wk_trans.please_enter_address | default:'Please enter address' }}</div>
+                <br>
+                <input type="number" name="distance" id="store_distance" placeholder="{{wk_trans.enter_distance_in_kilometer | default:'Enter distance in Kilometer' }}">
+                  <br><div class="invalid-error invalid-location">Please enter distance</div><br>
+                  </div>
+                  <label><b>Features</b></label>
+                <div class="feature-box">
+                </div>
+                  <div style="clear:both;"></div>
+                <br>
+                  <label><b>{{wk_trans.days | default:'Days' }}</b></label>
+                  {% assign weekDays = "monday,tuesday,wednesday,thursday,friday,saturday,sunday" | split: ',' %}
+                  <div class="days-box">
+                  {% for weekDay in weekDays %}
+                  <div class="custom-checkbox">
+                    <input type="checkbox" class="days" name="days[]" value="{{weekDay}}" id="{{weekDay}}">
+                    <label for="{{weekDay}}">
+                      {{wk_trans[weekDay] | default:weekDay }}</label>
+                  </div>
+                  {% endfor %}
+                  </div>
+                  <div style="clear:both;"></div>
+                <br>
+                <input type="hidden" value="" id="latitude">
+                <input type="hidden" value="" id="longitude">
+                <div class="search-loader" style="display: none;"></div>
+                <input class="btn search-form-btn" type="submit" value="{{wk_trans.submit | default:'Submit' }}" style="color: rgb(255, 255, 255); opacity: 1;">
+            </form>
+          </div>
+        <h2 class="wk-subheading">{{wk_trans.stores | default:'stores' }}</h2>
+          <div class="list-and-map">
+          <div class="store-list">
+              <table class="result-list" id="storeTable">
+                    <thead>
+                        <tr>
+                            <th>{{wk_trans.store_name | default:'Store Name' }}</th>
+                            <th>{{wk_trans.contact_no | default:'Contact No.' }}</th>
+                            <th>{{wk_trans.email | default:'Email' }}</th>
+                            <th>{{wk_trans.address | default:'Address' }}</th>
+                            <th>{{wk_trans.distance | default:'Distance' }}</th>
+                            <th>{{wk_trans.route | default:'Route' }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+              </table>
+          </div>
+    <!--       <h2 class="wk-subheading">Map Preview</h2> -->
+            <div class="only-map"></div> 
+        </div>
+    </div>
+    <script>
+        var stores = {{stores}};
+        var features = {{features}};        
+        var wk_pl_translations = {{shop.metafields.wk_store_pickup.trans | json}};
+
+    </script>
+    <script src = "https://storelocator.webkul.com/js/scriptTags/new-store-locator.js"></script>
+    </div>
