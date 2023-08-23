@@ -32,12 +32,6 @@
 
     ],
     "blocks": {
-      "12275743031121414305": {
-        "type": "shopify:\/\/apps\/variaslide-image-gallery\/blocks\/app-embed\/e22d46a9-b20f-46ef-839e-96f4f8caeb06",
-        "disabled": true,
-        "settings": {
-        }
-      },
       "vario_app_embed": {
         "type": "shopify:\/\/apps\/vario\/blocks\/app-embed\/622e8656-34ee-4cb0-92c3-60ea95cfc0b8",
         "disabled": true,
@@ -47,6 +41,12 @@
       "5281749993944428517": {
         "type": "shopify:\/\/apps\/variant-image-wizard-swatch\/blocks\/app-embed\/66205c03-f474-4e2c-b275-0a2806eeac16",
         "disabled": true,
+        "settings": {
+        }
+      },
+      "12275743031121414305": {
+        "type": "shopify:\/\/apps\/variaslide-image-gallery\/blocks\/app-embed\/e22d46a9-b20f-46ef-839e-96f4f8caeb06",
+        "disabled": false,
         "settings": {
         }
       }
