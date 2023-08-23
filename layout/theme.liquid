@@ -62,7 +62,7 @@
       
   
 <!-- GSSTART Slider code start. Do not change -->{% if product.id > 1 %}
-<script src="https://gravity-software.com//js/shopify/slider_prod{{ product.id }}.js?v=269804"  ></script><script type="text/javascript" src="https://gravity-software.com/js/shopify/slider_shop39001.js?v=eea6fef597a173ae4ea6c43ff73581bc"></script> 
+<script>document.write('<script src="' + 'https://gravity-software.com//js/shopify/slider_prod{{ product.id }}.js?v=' + Math.floor(Math.random() * 100) + '"\><\/script>'); </script> <script type="text/javascript" src="https://gravity-software.com/js/shopify/slider_shop39001.js?v=a572d147786198cd2c31564601bd30fc"></script> 
  {% if product.variants.size > 1 %}<script>
 gsSliderDefaultV = "{{ product.selected_or_first_available_variant.id }}";
 var variantImagesByVarianName = {};
