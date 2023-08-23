@@ -295,24 +295,16 @@
     "1692807916783e4f09": {
       "type": "apps",
       "blocks": {
-        "321f1903-548e-480a-a99f-234bbc0ea88f": {
-          "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/9d35f684-f743-45ca-9cc2-c5409bb241a8",
-          "settings": {
-            "heading": "intagram",
-            "feeds_type": "STORY"
-          }
-        },
-        "19044244-3228-49aa-bb09-93fb367cd998": {
+        "6120ad63-c362-4e0f-89b7-5dd4a3eb5481": {
           "type": "shopify:\/\/apps\/instafeed\/blocks\/app-block\/9d35f684-f743-45ca-9cc2-c5409bb241a8",
           "settings": {
             "heading": "",
-            "feeds_type": "CUSTOM"
+            "feeds_type": "FEEDS"
           }
         }
       },
       "block_order": [
-        "321f1903-548e-480a-a99f-234bbc0ea88f",
-        "19044244-3228-49aa-bb09-93fb367cd998"
+        "6120ad63-c362-4e0f-89b7-5dd4a3eb5481"
       ],
       "settings": {
         "separate_section_with_border": true,
