@@ -37,15 +37,564 @@ if(!window.initVar){
     },
     stockWidget: {
       selector: "gw-stock-fulfilled",
-      isEnabled: false,
+      isEnabled: true,
       popupSelector: "gw-stock-fulfilled-iframe",
       buttonType: "float",
       inlineButtonParentSelector: ``,
       backgroundColor: "#000000",
       textColor: "#ffffff",
-      subscriptionText: "Notify me when available",
+      subscriptionText: "Notify me when available from  cartBite",
       subscribedText: "We will notify you when the item is available",
-      modalHtml: `{stockWidgetModalHtml}`,
+      modalHtml: `<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-tel-input@5.14.0"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-tel-input@5.14.0/dist/vue-tel-input.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue-select@3.0.0"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-select@3.0.0/dist/vue-select.css">
+
+  <style>
+    * {
+      color: #353f4d;
+    }
+
+    .fade-in {
+      background: rgba(0, 0, 0, 0.65)
+    }
+
+    .email-input {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+      font: inherit;
+      margin: 0 0 10px 0;
+      font-family: inherit;
+      display: block;
+      width: 100%;
+      color: #555555;
+      /*background-color: #ffffff;*/
+      background-image: none;
+      /*box-shadow: inset 0 0px 0px rgb(0 0 0 / 8%);*/
+      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      height: 46px;
+      padding: 10px 16px;
+      line-height: 1.3333333;
+      border-radius: 4px;
+      background-color: #eee !important;
+      border-color: #eee !important;
+      border-style: solid;
+      border-width: 1px;
+      font-size: 15px;
+    }
+
+    .vue-tel-input input {
+      font-size: 15px;
+
+    }
+
+    .vue-tel-input, .vue-tel-input:focus-within {
+      box-shadow: none;
+      height: 46px;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 4px;
+      font-size: 17px;
+      margin: 0 0 10px 0;
+    }
+
+    .vue-tel-input:focus-within input {
+      background-color: #eee !important;
+    }
+
+    .vti__dropdown-list.below {
+      top: 45px;
+    }
+
+    .vue-tel-input:focus-within {
+      outline: -webkit-focus-ring-color auto 1px;
+      background-color: #eee !important;
+    }
+
+    .vti__dropdown.open {
+      outline: none;
+      background: transparent;
+    }
+
+    .modal-container {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      font-size: 14px;
+      line-height: 1.42857143;
+      -webkit-font-smoothing: antialiased;
+      color: #333333;
+      box-sizing: border-box;
+      border-radius: 5px;
+      padding: 30px 40px 20px 40px;
+      position: fixed;
+      width: 460px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: auto;
+      font-family: Helvetica, sans-serif;
+      background: #ffffff;
+      border-color: #000000;
+      border-width: 1px;
+      border-style: solid;
+    }
+
+    @media only screen and (max-width: 480px) {
+      .modal-container {
+        width: 370px;
+      }
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.42857143;
+    }
+
+    .notify-button {
+      font-weight: bold;
+      font-size: 15px;
+      padding: 14px;
+      color: #ffffff;
+      background-color: #000000;
+      border-color: #000000;
+      border-radius: 25px;
+      width: 100%;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .notification-message {
+      margin-top: 3px;
+    }
+
+    .close-icon {
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-font-smoothing: antialiased;
+      box-sizing: border-box;
+      font: inherit;
+      margin: 0;
+      overflow: visible;
+      text-transform: none;
+      font-family: inherit;
+      float: right;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 1;
+      text-shadow: 0 1px 0 #ffffff;
+      opacity: 0.5;
+      color: #cccccc;
+      padding: 0;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+      appearance: none;
+      margin-right: -25px;
+      margin-top: -20px;
+    }
+
+    .close-icon:hover {
+      color: #0b0d0f;
+      cursor: pointer;
+    }
+
+    .privacy-text {
+      font-size: 11px;
+      margin-bottom: 0;
+    }
+
+    /*input[type=checkbox] {*/
+    /*  height: 0;*/
+    /*  width: 0;*/
+    /*  visibility: hidden;*/
+    /*}*/
+
+    /*label {*/
+    /*  cursor: pointer;*/
+    /*  text-indent: -9999px;*/
+    /*  width: 40px;*/
+    /*  height: 20px;*/
+    /*  background: grey;*/
+    /*  display: block;*/
+    /*  border-radius: 100px;*/
+    /*  position: relative;*/
+    /*}*/
+
+    /*label:after {*/
+    /*  content: '';*/
+    /*  position: absolute;*/
+    /*  top: 0px;*/
+    /*  left: 0px;*/
+    /*  width: 20px;*/
+    /*  height: 20px;*/
+    /*  background: #fff;*/
+    /*  border-radius: 90px;*/
+    /*  transition: 0.3s;*/
+    /*}*/
+
+    /*input:checked + label {*/
+    /*  background: #e3f3fc;*/
+    /*}*/
+
+    /*input:checked + label:after {*/
+    /*  left: calc(100% - 0.5px);*/
+    /*  transform: translateX(-100%);*/
+    /*  background: #48b0f7*/
+    /*}*/
+
+    [v-cloak] {
+      display: none;
+    }
+
+    .gw-success-message.complete {
+      display: block;
+    }
+
+    .alert-success {
+      background-color: #dff0d8;
+      border-color: #dff0d8;
+      color: #3c763d;
+    }
+
+    .gw-success-message {
+      display: none;
+    }
+
+    .alert {
+      padding: 6px 10px;
+      font-size: 13px;
+      margin: 15px 0;
+    }
+
+    .marketing-container {
+      margin-top: 30px;
+      display: flex;
+    }
+
+    .marketing-container-label {
+      margin-left: 5px;
+    }
+
+    .gw-branding-powered-by {
+      margin-bottom: -10px;
+      float: right;
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      justify-content: center;
+      margin-right: -24px;
+    }
+
+    .gw-branding-powered-by span img {
+      margin-left: 6px;
+      width: 100px;
+    }
+
+    .channel-selector {
+      display: flex;
+    }
+
+    .channel-selector .btn-group {
+      width: 50%;
+    }
+
+    .channel-selector .btn-group button {
+      width: 100%;
+      font-size: 14px;
+      padding: 9px;
+      margin-bottom: 30px;
+      margin-top: 15px;
+      letter-spacing: 0.8px;
+      border: none;
+    }
+
+    .channel-selector .btn-group button.active {
+      background-color: #0b2e13;
+      color: white;
+    }
+
+    #email-tab {
+      border-radius: 4px 0px 0px 4px;
+      border-color: transparent;
+    }
+
+    #sms-tab {
+      border-radius: 0px 4px 4px 0px;
+      border-color: transparent;
+    }
+
+    #variant-container {
+      margin-bottom: 30px;
+      margin-top: 25px;
+      font-size: 17px;
+    }
+
+    .channel-variant-gap {
+      margin-top: -15px;
+    }
+
+    @media only screen and (max-width: 480px) {
+      .modal-title {
+        font-size: 18px;
+      }
+    }
+
+  </style>
+
+  <style>
+    .modal-title{
+}
+.notification-message{
+}
+.email-input{
+}
+.notify-button{
+}
+.privacy-text{
+}
+.close-icon{
+}
+  </style>
+</head>
+<body class="fade-in pop-up-container">
+<div class="modal" v-cloak id="el">
+  <div class="modal-container">
+    <button type="button" class="close-icon action-close"
+            data-dismiss="modal"
+            @click.prevent="closeModal">X
+    </button>
+    <h3 class="modal-title">NOTIFY ME WHEN AVAILABLE</h3>
+    <p class="notification-message">We will notify you when the product is back in stock</p>
+
+    <div id="variant-container" v-if="showVariantSelectorInput()">
+      <div :key="variantKey">
+        <v-select
+          @input="variantChanged()"
+          :options="variants" label="text" :reduce="item => item.value"
+          v-model="selectedVariant"
+          style="margin-top: 5px"></v-select>
+      </div>
+    </div>
+
+    <div :class="{'channel-selector':true,'channel-variant-gap':showVariantSelector}" v-if="showChannelSelector()">
+      <div class="btn-group">
+        <button type="button" :class="'btn btn-default '+ (selectedChannel==='email'?'active':'')" id="email-tab"
+                @click="()=>{selectedChannel='email'}"
+        >Email
+        </button>
+      </div>
+      <div class="btn-group">
+        <button type="button" :class="'btn btn-default '+ (selectedChannel==='sms'?'active':'')" id="sms-tab"
+                @click="()=>{selectedChannel='sms';changePhoneNumberPlaceholder()}"
+        >SMS
+        </button>
+      </div>
+    </div>
+    <template v-if="selectedChannel==='email'">
+      <input class="email-input" :placeholder="emailPlaceholder"
+             v-model="email" @change="emailChanged()">
+      <small style="color: red" v-if="!isEmailValid">Please Provide Valid Email</small>
+    </template>
+    <template v-if="selectedChannel==='sms'">
+      <vue-tel-input v-model="phoneNumber"
+                     :default-country="getDefaultCountry()"
+                     @input="phoneNumberChanged()"
+                     @open="onDropdownOpen(true)"
+                     v-on:country-changed="countryChanged"
+                     @close="onDropdownOpen(false)">
+        <template v-slot:arrow-icon>
+          <span v-if="phoneNumberDropDown">▲</span>
+          <span v-else>▼</span>
+        </template>
+      </vue-tel-input>
+      <small style="color: red" v-if="!isPhoneNumberValid">Please Provide Valid Contact Number</small>
+      <small style="color: red" v-if="!isCountryCodeValid">Please Select Country</small>
+    </template>
+
+    <!--    <input type="checkbox" id="switch" /><label for="switch">Toggle</label>-->
+    <div style="display: flex;width: 100%;justify-content: center">
+      <button class="notify-button"
+              @click="notifyButtonClicked">
+        Notify Me
+      </button>
+    </div>
+    <div v-if="dataEntered" class="gw-success-message alert alert-success complete"> Your notification has been registered.
+      <a href="#"
+         class="action-close"
+         @click.p.prevent="closeModal">Close</a>
+    </div>
+
+    <div class="marketing-container" v-if="shopifyMailingListEnabled">
+      <input type="checkbox" class="marketing-container-input" name="accepts_marketing"
+             id="accepts_marketing" v-model="optInToMarketing">
+      <label class="marketing-container-label" for="accepts_marketing">Signup for newsletter?</label>
+    </div>
+    <p class="privacy-text">We respect your privacy and do not share your email with anyone.</p>
+
+    <p class="gw-branding-powered-by" v-if="brandingEnabled">Powered By <span><img
+      src="https://stlf.s3.ap-south-1.amazonaws.com/stq/logo_cb.svg" width="50px"></span></p>
+  </div>
+</div>
+</body>
+<script>
+  Vue.component('v-select', VueSelect.VueSelect);
+  window.onload = function () {
+    window.growCampaignPopUp = new Vue({
+      el: "#el",
+      data: {
+        iFrameId: "gw-stock-fulfilled-iframe",
+        heading: "heading",
+        subheading: "We will notify you when the product is back in stock",
+        notifyButtonTitle: "Notify Me",
+        privacyText: "We respect your privacy and do not share your email with anyone.",
+        emailWorkflowUniqueId: "911HQUG35F97R93QANR7Z53W",
+        smsWorkflowUniqueId: "XIWFRHN7UN944KJAE8SEZ11B",
+        successText: "Your notification has been registered.",
+        successCloseText: "Close",
+        optInMarketingText: "Signup for newsletter?",
+        email: "",
+        phoneNumber: '',
+        phoneNumberCountryDetails: {},
+        phoneNumberDropDown: false,
+        dataEntered: false,
+        isEmailValid: true,
+        isPhoneNumberValid: true,
+        isCountryCodeValid: true,
+        optInToMarketing: true,
+        shopifyMailingListEnabled: false,
+        brandingEnabled: true,
+        emailInputEnabled: true,
+        smsInputEnabled: false,
+        selectedChannel: 'email',
+        variants: [],
+        variantKey: "vk-",
+        selectedVariant: '',
+        showVariantSelector: false,
+        emailPlaceholder: 'Email Address',
+        phoneNumberPlaceholder: 'Enter a phone number'
+      },
+      methods: {
+        closeModal() {
+          parent.initVar.closePopUp(this.iFrameId)
+        },
+        emailChanged() {
+          this.isEmailValid = true
+        },
+        phoneNumberChanged() {
+          this.isPhoneNumberValid = true
+        },
+        checkEmail(email) {
+          return parent.initVar.checkEmail(email)
+        },
+        checkPhoneNumber(phoneNumber) {
+          return parent.initVar.checkPhoneNumber(phoneNumber)
+        },
+        notifyButtonClicked() {
+          if (this.selectedChannel === 'email' && !this.checkEmail(this.email)) {
+            this.isEmailValid = false;
+            return;
+          }
+          let countryCode = this.phoneNumberCountryDetails.dialCode
+          if (this.selectedChannel === 'sms') {
+            if (!this.checkPhoneNumber(this.phoneNumber)) {
+              this.isPhoneNumberValid = false;
+              return
+            }
+            if (!countryCode) {
+              console.error("Invalid Country Data", this.phoneNumberCountryDetails)
+              this.isCountryCodeValid = false;
+              return
+            }
+          }
+          if (this.successText && this.successCloseText) {
+            this.dataEntered = true;
+            setTimeout(() => {
+              this.closeModal()
+            }, 2900);
+          } else {
+            this.closeModal()
+          }
+          if (this.selectedChannel === 'email') {
+            parent.initVar.campaignPopUpNotifyButtonClicked(this.iFrameId, this.emailWorkflowUniqueId,
+              this.email, this.optInToMarketing)
+          }
+          if (this.selectedChannel === 'sms') {
+            parent.initVar.campaignPopUpNotifyButtonClicked(this.iFrameId, this.smsWorkflowUniqueId,
+              {
+                smsTarget: this.phoneNumber,
+                smsDialCode: countryCode,
+              }, this.optInToMarketing)
+          }
+        },
+        onDropdownOpen(value) {
+          this.phoneNumberDropDown = value
+        },
+        changePhoneNumberPlaceholder() {
+          let count = 0;
+          let interval = setInterval(() => {
+            console.log("Changing SMS Placeholder")
+            if (count === 100) {
+              clearInterval(interval)
+            }
+            count++;
+            if (document.querySelector('[name=telephone]')) {
+              document.querySelector('[name=telephone]').placeholder = this.phoneNumberPlaceholder;
+              clearInterval(interval)
+            }
+          }, 50)
+        },
+        showChannelSelector() {
+          if (this.emailInputEnabled && this.smsInputEnabled) {
+            return true
+          }
+          return false
+        },
+        countryChanged(country) {
+          this.phoneNumberCountryDetails = country;
+          this.isCountryCodeValid = true;
+          console.log(country)
+        },
+        variantChanged() {
+          parent.initVar.variantChangedFromModal(this.selectedVariant)
+        },
+        showVariantSelectorInput() {
+          if (!this.showVariantSelector) {
+            return false
+          }
+          if (this.variants.length === 1 && this.variants[0].text.toLowerCase() === "default title") {
+            return false
+          }
+          return true
+        },
+        getDefaultCountry() {
+          return parent.initVar.defaultCountry;
+        }
+      }
+    });
+    parent.growCampaignPopUps = parent.parent.growCampaignPopUps || {};
+    parent.growCampaignPopUps[window.growCampaignPopUp.iFrameId] = window.growCampaignPopUp;
+    if (window.growCampaignPopUp.selectedChannel === 'sms') {
+      window.growCampaignPopUp.changePhoneNumberPlaceholder();
+    }
+  };
+  window.addEventListener('click', function (e) {
+    if ((e && e.path && !e.path.some(x => x.className && x.className.includes && x.className.includes('modal-container'))) ||
+      (e && !e.path && e.target.tagName==="HTML")) {
+      if (parent.initVar.closeCampaignPopUpOnOutSideClick)
+        window.growCampaignPopUp.closeModal()
+    }
+  }, true)
+</script>
+</html>
+`,
       showIfAnyVariantIsOutOfStock: false,
     },
     priceDropWidget: {
