@@ -35,6 +35,11 @@
           "settings": {
           }
         },
+        "fc566d56-5f77-4e13-a4a6-4050ae8ca39f": {
+          "type": "shopify:\/\/apps\/promap-store-locator\/blocks\/wheretobuy-block\/acff8fd9-34cc-4a4d-98ed-d7fdb5d3605f",
+          "settings": {
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -111,9 +116,11 @@
             "description_below_add_to_cart": true
           }
         },
-        "fc566d56-5f77-4e13-a4a6-4050ae8ca39f": {
-          "type": "shopify:\/\/apps\/promap-store-locator\/blocks\/wheretobuy-block\/acff8fd9-34cc-4a4d-98ed-d7fdb5d3605f",
+        "d7beba67-0551-42f3-8850-84a85969c188": {
+          "type": "shopify:\/\/apps\/variant-option-product-options\/blocks\/block\/430cbd7b-bd20-4c16-ba41-db6f4c645164",
           "settings": {
+            "font_size": 10,
+            "font_color": "#e62727"
           }
         }
       },
@@ -132,7 +139,8 @@
         "quantity_selector",
         "complementary_products",
         "af22d8f0-39ec-4e65-98c0-37eadfb43554",
-        "a61b0db3-d20e-4c54-9141-5b8b7b1fed48"
+        "a61b0db3-d20e-4c54-9141-5b8b7b1fed48",
+        "d7beba67-0551-42f3-8850-84a85969c188"
       ],
       "settings": {
         "container_size": "full",
