@@ -171,18 +171,6 @@
     },
     "16928822851c323486": {
       "type": "apps",
-      "blocks": {
-        "a8cc27d8-c77f-42e7-9776-5475d070b411": {
-          "type": "shopify:\/\/apps\/variant-option-product-options\/blocks\/block\/430cbd7b-bd20-4c16-ba41-db6f4c645164",
-          "settings": {
-            "font_size": 6,
-            "font_color": "#f50e0e"
-          }
-        }
-      },
-      "block_order": [
-        "a8cc27d8-c77f-42e7-9776-5475d070b411"
-      ],
       "settings": {
         "separate_section_with_border": true,
         "remove_vertical_spacing": false,
